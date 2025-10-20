@@ -168,7 +168,7 @@ class ImtiazMenu(BaseMenu):
                                 'rest_brId': rest_brId
                             })
                 
-                sleep(0.5)
+                # sleep(0.1)
         
         logging.info(f"[{self.get_service_name()}] Total sections to process: {len(all_sections)}")
         

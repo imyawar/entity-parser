@@ -192,7 +192,7 @@ class BaseJsonToCsv(JSONMixin):
 
     def csv_headers(self):
         return ['menu_id', 'menu_parent_id', 'menu_parent_name', 'menu_name', 'menu_name_clean', 'menu_description', 'price',
-                'store_id', 'zip_code', 'city', 'state', 'address', 'lat', 'long', 'brand', 'brand_id', 'date',
+                'store_id','product_image_url', 'zip_code', 'city', 'state', 'address', 'lat', 'long', 'brand', 'brand_id', 'date',
                 'cbsa_id', 'cbsa', 'utcoffset']
 
     def write_menu_to_csv(self, api_response, store_id, writer=None):
@@ -381,7 +381,7 @@ class BaseJsonToCsv(JSONMixin):
 
         return None
 
-    def gen_csv_row(self, menu_name, menu_description, price, menu_id, menu_parent_id, menu_parent_name, store):
+    def gen_csv_row(self, menu_name, menu_description, price, menu_id, menu_parent_id, menu_parent_name, store,image_url=None):
         cbsa_id = store.get('CBSAFP', 0)
         latitude = store.get('latitude', 0.0)
         longitude = store.get('longitude', 0.0)
@@ -408,6 +408,7 @@ class BaseJsonToCsv(JSONMixin):
             'menu_parent_id': menu_parent_id,
             'menu_parent_name': self.clean_text(menu_parent_name),
             'store_id': store.get('store_id', 0),
+            'product_image_url':image_url,
             'zip_code': zipcode,
             'city': city,
             'state': state,

@@ -182,7 +182,7 @@ class ImtiazJsonToCsv(BaseJsonToCsv):
                     # Use sub-section as parent category (we added this metadata in post-menu)
                     sub_section_name = product.get('sub_section_name', 'N/A')
                     sub_section_id = str(product.get('sub_section_id', 'N/A'))
-                    
+                    image_url = product.get('img_url', 'N/A')
                     # Generate CSV row using base class method
                     row = self.gen_csv_row(
                         menu_name=menu_name,
@@ -191,7 +191,8 @@ class ImtiazJsonToCsv(BaseJsonToCsv):
                         menu_id=menu_id,
                         menu_parent_id=sub_section_id,
                         menu_parent_name=sub_section_name,
-                        store=store
+                        store=store,
+                        image_url=image_url
                     )
                     
                     # Write row to CSV
