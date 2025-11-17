@@ -1,0 +1,53 @@
+{
+  "store_id": 28,
+  "store_name": "Metro Chand Bhag Store",
+  "location": "Chand Bhag Store",
+  "city": "Lahore",
+  "state": "Punjab",
+  "address": "Chand Bhag Store, Lahore",
+  "zipcode": "N/A",
+  "latitude": 0.0,
+  "longitude": 0.0,
+  "phone": "N/A",
+  "is_active": true,
+  "default_city": false,
+  "has_geometry": false,
+  "geometry": [],
+  "city_polygon": [],
+  "next_day_polygon": [
+    [
+      {
+        "x": 74.15508727,
+        "y": 31.79896749
+      },
+      {
+        "x": 74.15982205,
+        "y": 31.80102941
+      },
+      {
+        "x": 74.15837422,
+        "y": 31.80661629
+      },
+      {
+        "x": 74.1498438,
+        "y": 31.80648328
+      },
+      {
+        "x": 74.14706554,
+        "y": 31.80402242
+      },
+      {
+        "x": 74.14749597,
+        "y": 31.79244889
+      },
+      {
+        "x": 74.15336553,
+        "y": 31.79624038
+      },
+      {
+        "x": 74.15508727,
+        "y": 31.79896749
+      }
+    ]
+  ]
+}

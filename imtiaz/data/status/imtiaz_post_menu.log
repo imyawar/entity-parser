@@ -1,0 +1,567 @@
+2025-11-11 08:53:47,process.post-menu,114,start,sections:187,rest_brId:54934,success
+2025-11-11 08:53:47,process.post-menu,114,subsection:42987,name:Basic,products:0,no_data
+2025-11-11 08:53:49,process.post-menu,114,subsection:42988,name:Fresh Fruits,products:0,no_data
+2025-11-11 08:53:50,process.post-menu,114,subsection:42989,name:Fresh Vegetables,products:0,no_data
+2025-11-11 08:53:51,process.post-menu,114,subsection:42990,name:Meat,products:0,no_data
+2025-11-11 08:53:52,process.post-menu,114,subsection:42991,name:Poultry,products:0,no_data
+2025-11-11 08:53:54,process.post-menu,114,subsection:42986,name:Eggs,products:0,no_data
+2025-11-11 08:53:55,process.post-menu,114,subsection:43267,name:Bread & Buns,products:0,no_data
+2025-11-11 08:53:56,process.post-menu,114,subsection:43266,name:Biscuit,products:0,no_data
+2025-11-11 08:53:57,process.post-menu,114,subsection:43268,name:Cake,products:0,no_data
+2025-11-11 08:53:59,process.post-menu,114,subsection:43269,name:Muffin,products:0,no_data
+2025-11-11 08:54:00,process.post-menu,114,subsection:43270,name:Rusks,products:0,no_data
+2025-11-11 08:54:01,process.post-menu,114,subsection:43039,name:Sugar & Gluten Free ,products:2,success
+2025-11-11 08:54:02,process.post-menu,114,subsection:42954,name:Wafers,products:4,success
+2025-11-11 08:54:03,process.post-menu,114,subsection:42955,name:Biscuits,products:31,success
+2025-11-11 08:54:05,process.post-menu,114,subsection:43176,name:Cake Rusk,products:0,no_data
+2025-11-11 08:54:07,process.post-menu,114,subsection:43042,name:Cakes,products:7,success
+2025-11-11 08:54:08,process.post-menu,114,subsection:42952,name:Chocolates,products:3,success
+2025-11-11 08:54:09,process.post-menu,114,subsection:43175,name:Marshmallow,products:1,success
+2025-11-11 08:54:10,process.post-menu,114,subsection:42953,name:Jellies,products:2,success
+2025-11-11 08:54:12,process.post-menu,114,subsection:43040,name:Chewing Gum,products:1,success
+2025-11-11 08:54:13,process.post-menu,114,subsection:43041,name:Candies,products:4,success
+2025-11-11 08:54:14,process.post-menu,114,subsection:43037,name:Popcorn,products:13,success
+2025-11-11 08:54:15,process.post-menu,114,subsection:43038,name:Nimco,products:8,success
+2025-11-11 08:54:16,process.post-menu,114,subsection:42956,name:Crackers,products:10,success
+2025-11-11 08:54:18,process.post-menu,114,subsection:42957,name:Chips,products:25,success
+2025-11-11 08:54:19,process.post-menu,114,subsection:43050,name:Malt Drinks,products:13,success
+2025-11-11 08:54:20,process.post-menu,114,subsection:42966,name:Energy & Soda Drinks,products:2,success
+2025-11-11 08:54:21,process.post-menu,114,subsection:42967,name:Soft Drinks,products:48,success
+2025-11-11 08:54:22,process.post-menu,114,subsection:42965,name:Juices & Nectars,products:35,success
+2025-11-11 08:54:24,process.post-menu,114,subsection:43047,name:Sports Drink,products:2,success
+2025-11-11 08:54:25,process.post-menu,114,subsection:43048,name:Powdered Malt Drinks,products:3,success
+2025-11-11 08:54:27,process.post-menu,114,subsection:43049,name:Nutritional Drinks,products:13,success
+2025-11-11 08:54:28,process.post-menu,114,subsection:42968,name:Cordials & Syrups,products:15,success
+2025-11-11 08:54:29,process.post-menu,114,subsection:42969,name:Instant Powdered Drinks,products:15,success
+2025-11-11 08:54:30,process.post-menu,114,subsection:42964,name:Water,products:5,success
+2025-11-11 08:54:32,process.post-menu,114,subsection:43054,name:Green Tea,products:9,success
+2025-11-11 08:54:34,process.post-menu,114,subsection:42975,name:Black Tea,products:26,success
+2025-11-11 08:54:35,process.post-menu,114,subsection:43053,name:Powdered Coffee,products:5,success
+2025-11-11 08:54:36,process.post-menu,114,subsection:42974,name:Instant Tea & Coffee,products:1,success
+2025-11-11 08:54:38,process.post-menu,114,subsection:42973,name:Tea Whiteners,products:7,success
+2025-11-11 08:54:39,process.post-menu,114,subsection:42926,name:Pulses & Grains,products:20,success
+2025-11-11 08:54:40,process.post-menu,114,subsection:42938,name:Pasta,products:30,success
+2025-11-11 08:54:41,process.post-menu,114,subsection:42939,name:Noodles & Spaghetti,products:12,success
+2025-11-11 08:54:43,process.post-menu,114,subsection:42940,name:Instant Noodles,products:7,success
+2025-11-11 08:54:44,process.post-menu,114,subsection:42921,name:Salt, Spices & Herbs,products:22,success
+2025-11-11 08:54:45,process.post-menu,114,subsection:42922,name:Spices & Herbs,products:44,success
+2025-11-11 08:54:46,process.post-menu,114,subsection:43167,name:Pickles,products:9,success
+2025-11-11 08:54:48,process.post-menu,114,subsection:42923,name:Salt,products:10,success
+2025-11-11 08:54:49,process.post-menu,114,subsection:42924,name:Recipes Mix,products:46,success
+2025-11-11 08:54:50,process.post-menu,114,subsection:43077,name:Cereals & Oats,products:17,success
+2025-11-11 08:54:51,process.post-menu,114,subsection:43228,name:Olive Oil,products:13,success
+2025-11-11 08:54:52,process.post-menu,114,subsection:42934,name:Corn & Sunflower Oil,products:4,success
+2025-11-11 08:54:54,process.post-menu,114,subsection:42935,name:Ghee,products:6,success
+2025-11-11 08:54:55,process.post-menu,114,subsection:42936,name:Canola Oil,products:3,success
+2025-11-11 08:54:56,process.post-menu,114,subsection:42937,name:Cooking Oil,products:4,success
+2025-11-11 08:54:57,process.post-menu,114,subsection:42925,name:Rice,products:4,success
+2025-11-11 08:54:58,process.post-menu,114,subsection:42927,name:Flour,products:8,success
+2025-11-11 08:55:00,process.post-menu,114,subsection:42928,name:Other Flour,products:5,success
+2025-11-11 08:55:01,process.post-menu,114,subsection:43256,name:Diet Flour,products:0,no_data
+2025-11-11 08:55:02,process.post-menu,114,subsection:42943,name:Sugar,products:4,success
+2025-11-11 08:55:04,process.post-menu,114,subsection:42929,name:Dry Fruits,products:18,success
+2025-11-11 08:55:05,process.post-menu,114,subsection:42930,name:Dates,products:0,no_data
+2025-11-11 08:55:06,process.post-menu,114,subsection:43078,name:Vegetables,products:1,success
+2025-11-11 08:55:08,process.post-menu,114,subsection:43079,name:Fruits,products:1,success
+2025-11-11 08:55:09,process.post-menu,114,subsection:43216,name:Olives,products:0,no_data
+2025-11-11 08:55:11,process.post-menu,114,subsection:43168,name:BBQ Sauce,products:1,success
+2025-11-11 08:55:12,process.post-menu,114,subsection:42931,name:Dressings & Seasonings,products:3,success
+2025-11-11 08:55:13,process.post-menu,114,subsection:43073,name:Cooking Sauces,products:6,success
+2025-11-11 08:55:14,process.post-menu,114,subsection:43169,name:Cooking Pastes,products:2,success
+2025-11-11 08:55:16,process.post-menu,114,subsection:43074,name:Vinegar,products:4,success
+2025-11-11 08:55:17,process.post-menu,114,subsection:43075,name:Soya Sauce,products:1,success
+2025-11-11 08:55:18,process.post-menu,114,subsection:43076,name:Chilli Sauce,products:2,success
+2025-11-11 08:55:19,process.post-menu,114,subsection:42932,name:Mayonnaise,products:8,success
+2025-11-11 08:55:21,process.post-menu,114,subsection:42933,name:Ketchup,products:12,success
+2025-11-11 08:55:22,process.post-menu,114,subsection:43172,name:Honey,products:16,success
+2025-11-11 08:55:23,process.post-menu,114,subsection:43080,name:Chocolate Spread,products:7,success
+2025-11-11 08:55:24,process.post-menu,114,subsection:43081,name:Jams & Marmalades,products:21,success
+2025-11-11 08:55:25,process.post-menu,114,subsection:43083,name:Chicken Spread,products:3,success
+2025-11-11 08:55:27,process.post-menu,114,subsection:43082,name:Traditional Dessert Mixes,products:24,success
+2025-11-11 08:55:28,process.post-menu,114,subsection:42944,name:Vermicelli,products:7,success
+2025-11-11 08:55:30,process.post-menu,114,subsection:42945,name:Custard & Jelly Mixes,products:26,success
+2025-11-11 08:55:31,process.post-menu,114,subsection:43170,name:Tortilla & Wraps,products:2,success
+2025-11-11 08:55:32,process.post-menu,114,subsection:43251,name:Mutton,products:0,no_data
+2025-11-11 08:55:34,process.post-menu,114,subsection:43252,name:Beef,products:0,no_data
+2025-11-11 08:55:35,process.post-menu,114,subsection:43227,name:Vegetable Dishes,products:0,no_data
+2025-11-11 08:55:36,process.post-menu,114,subsection:43253,name:Rice Dishes,products:0,no_data
+2025-11-11 08:55:38,process.post-menu,114,subsection:43254,name:Pulses,products:0,no_data
+2025-11-11 08:55:39,process.post-menu,114,subsection:43255,name:Chicken,products:0,no_data
+2025-11-11 08:55:40,process.post-menu,114,subsection:43069,name:Baking & Cooking,products:0,no_data
+2025-11-11 08:55:42,process.post-menu,114,subsection:43171,name:Sweeteners,products:3,success
+2025-11-11 08:55:43,process.post-menu,114,subsection:43070,name:Fillings & Toppings,products:1,success
+2025-11-11 08:55:44,process.post-menu,114,subsection:43071,name:Colour & Essence,products:6,success
+2025-11-11 08:55:45,process.post-menu,114,subsection:42941,name:Corn Flour,products:1,success
+2025-11-11 08:55:46,process.post-menu,114,subsection:43072,name:Bread Crumbs,products:0,no_data
+2025-11-11 08:55:48,process.post-menu,114,subsection:42942,name:Baking Essentials,products:7,success
+2025-11-11 08:55:49,process.post-menu,114,subsection:43091,name:Condensed Milk,products:5,success
+2025-11-11 08:55:50,process.post-menu,114,subsection:43198,name:Powdered Milk,products:6,success
+2025-11-11 08:55:51,process.post-menu,114,subsection:43001,name:Liquid Milk,products:27,success
+2025-11-11 08:55:53,process.post-menu,114,subsection:42999,name:Flavoured Milk,products:19,success
+2025-11-11 08:55:54,process.post-menu,114,subsection:43090,name:Chilled Coffee,products:0,no_data
+2025-11-11 08:55:55,process.post-menu,114,subsection:42997,name:Butter & Margarine,products:13,success
+2025-11-11 08:55:56,process.post-menu,114,subsection:43230,name:Raita,products:0,no_data
+2025-11-11 08:55:58,process.post-menu,114,subsection:43089,name:Flavoured Yogurt,products:0,no_data
+2025-11-11 08:55:59,process.post-menu,114,subsection:42998,name:Plain Yogurt,products:0,no_data
+2025-11-11 08:56:00,process.post-menu,114,subsection:43092,name:Cheese,products:6,success
+2025-11-11 08:56:02,process.post-menu,114,subsection:43000,name:Cream,products:6,success
+2025-11-11 08:56:03,process.post-menu,114,subsection:43096,name:Appetizers,products:9,success
+2025-11-11 08:56:04,process.post-menu,114,subsection:43095,name:Chicken,products:15,success
+2025-11-11 08:56:05,process.post-menu,114,subsection:43179,name:French Fries,products:0,no_data
+2025-11-11 08:56:07,process.post-menu,114,subsection:43093,name:Vegetables,products:0,no_data
+2025-11-11 08:56:08,process.post-menu,114,subsection:43178,name:Fruits,products:0,no_data
+2025-11-11 08:56:09,process.post-menu,114,subsection:43094,name:Puri & Paratha,products:2,success
+2025-11-11 08:56:10,process.post-menu,114,subsection:43177,name:Pizza Dough,products:0,no_data
+2025-11-11 08:56:12,process.post-menu,114,subsection:43108,name:Bottles & Nipples,products:13,success
+2025-11-11 08:56:13,process.post-menu,114,subsection:43222,name:Feeding Accessories,products:2,success
+2025-11-11 08:56:14,process.post-menu,114,subsection:43224,name:Lotions, Creams & Moisturizers,products:1,success
+2025-11-11 08:56:16,process.post-menu,114,subsection:43202,name:Oral Care,products:1,success
+2025-11-11 08:56:17,process.post-menu,114,subsection:43203,name:Hair Care,products:0,no_data
+2025-11-11 08:56:18,process.post-menu,114,subsection:43204,name:Baby Care,products:1,success
+2025-11-11 08:56:19,process.post-menu,114,subsection:43109,name:Wipes and Swabs,products:5,success
+2025-11-11 08:56:21,process.post-menu,114,subsection:43223,name:Bodywashes & Soaps,products:2,success
+2025-11-11 08:56:22,process.post-menu,114,subsection:43107,name:Diapers & Pants,products:2,success
+2025-11-11 08:56:24,process.post-menu,114,subsection:43110,name:Cereals,products:12,success
+2025-11-11 08:56:25,process.post-menu,114,subsection:43111,name:Formula Milk,products:30,success
+2025-11-11 08:56:27,process.post-menu,114,subsection:43239,name:Mouthwash,products:4,success
+2025-11-11 08:56:28,process.post-menu,114,subsection:43132,name:Toothbrushes & Floss,products:48,success
+2025-11-11 08:56:30,process.post-menu,114,subsection:43024,name:Toothpastes,products:70,success
+2025-11-11 08:56:31,process.post-menu,114,subsection:43240,name:Oils,products:0,no_data
+2025-11-11 08:56:32,process.post-menu,114,subsection:43133,name:Lotions,products:7,success
+2025-11-11 08:56:34,process.post-menu,114,subsection:43261,name:Creams & Moisturizers,products:4,success
+2025-11-11 08:56:36,process.post-menu,114,subsection:43188,name:Hair Combs & Brushes,products:0,no_data
+2025-11-11 08:56:37,process.post-menu,114,subsection:43259,name:Hair Treatment & Care,products:0,no_data
+2025-11-11 08:56:38,process.post-menu,114,subsection:43260,name:Hair Styling,products:1,success
+2025-11-11 08:56:39,process.post-menu,114,subsection:43130,name:Hair Oils,products:15,success
+2025-11-11 08:56:41,process.post-menu,114,subsection:43131,name:Hair Colours,products:33,success
+2025-11-11 08:56:42,process.post-menu,114,subsection:43212,name:Conditioners,products:13,success
+2025-11-11 08:56:45,process.post-menu,114,subsection:43025,name:Shampoos,products:91,success
+2025-11-11 08:56:46,process.post-menu,114,subsection:43127,name:Facial Cleansers & Whitening Treatments,products:14,success
+2025-11-11 08:56:47,process.post-menu,114,subsection:43128,name:Fairness Creams,products:4,success
+2025-11-11 08:56:48,process.post-menu,114,subsection:43237,name:Masks & Scrubs,products:5,success
+2025-11-11 08:56:49,process.post-menu,114,subsection:43213,name:Men's Face Washes,products:8,success
+2025-11-11 08:56:51,process.post-menu,114,subsection:43129,name:Face Washes,products:27,success
+2025-11-11 08:56:52,process.post-menu,114,subsection:43124,name:Wipes, Swabs & Buds,products:9,success
+2025-11-11 08:56:53,process.post-menu,114,subsection:43236,name:Adult Diapers & Diaper Pants,products:0,no_data
+2025-11-11 08:56:55,process.post-menu,114,subsection:43125,name:Anti-Bacterial Soaps,products:44,success
+2025-11-11 08:56:56,process.post-menu,114,subsection:43189,name:Sanitizers,products:0,no_data
+2025-11-11 08:56:57,process.post-menu,114,subsection:43190,name:Body Wash,products:5,success
+2025-11-11 08:56:58,process.post-menu,114,subsection:43126,name:Hand Washes,products:26,success
+2025-11-11 08:57:00,process.post-menu,114,subsection:43026,name:Soaps,products:62,success
+2025-11-11 08:57:01,process.post-menu,114,subsection:43214,name:Shaving Cream,products:1,success
+2025-11-11 08:57:02,process.post-menu,114,subsection:43027,name:Razors and Cartridges,products:7,success
+2025-11-11 08:57:04,process.post-menu,114,subsection:43192,name:Razors & Wax Strips,products:2,success
+2025-11-11 08:57:05,process.post-menu,114,subsection:43134,name:Hair Removing Creams,products:21,success
+2025-11-11 08:57:06,process.post-menu,114,subsection:43135,name:Sanitary Pads,products:31,success
+2025-11-11 08:57:07,process.post-menu,114,subsection:43191,name:Talcom Powder,products:1,success
+2025-11-11 08:57:08,process.post-menu,114,subsection:43210,name:Antiperspirants & Roll ons,products:0,no_data
+2025-11-11 08:57:10,process.post-menu,114,subsection:43211,name:Deodorants, Body Sprays & Mists,products:6,success
+2025-11-11 08:57:11,process.post-menu,114,subsection:43238,name:Aromatics,products:0,no_data
+2025-11-11 08:57:12,process.post-menu,114,subsection:43195,name:Bleach,products:7,success
+2025-11-11 08:57:14,process.post-menu,114,subsection:43150,name:Fabric Softeners,products:3,success
+2025-11-11 08:57:15,process.post-menu,114,subsection:43151,name:Laundry Essentials,products:7,success
+2025-11-11 08:57:16,process.post-menu,114,subsection:43016,name:Detergent,products:25,success
+2025-11-11 08:57:18,process.post-menu,114,subsection:43146,name:Naphthalene Balls,products:2,success
+2025-11-11 08:57:19,process.post-menu,114,subsection:43147,name:Toilet Essentials,products:23,success
+2025-11-11 08:57:20,process.post-menu,114,subsection:43148,name:Shoe Care,products:11,success
+2025-11-11 08:57:21,process.post-menu,114,subsection:43010,name:Kitchen Essentials,products:45,success
+2025-11-11 08:57:23,process.post-menu,114,subsection:43149,name:Surface Cleaners,products:24,success
+2025-11-11 08:57:24,process.post-menu,114,subsection:43218,name:Household Cleaners,products:1,success
+2025-11-11 08:57:26,process.post-menu,114,subsection:43196,name:Cling & Paper Wrap,products:2,success
+2025-11-11 08:57:28,process.post-menu,114,subsection:43013,name:Garbage Bags,products:4,success
+2025-11-11 08:57:30,process.post-menu,114,subsection:43014,name:Food Bags,products:0,no_data
+2025-11-11 08:57:31,process.post-menu,114,subsection:43011,name:Toilet Roll,products:9,success
+2025-11-11 08:57:33,process.post-menu,114,subsection:43152,name:Kitchen Rolls,products:9,success
+2025-11-11 08:57:34,process.post-menu,114,subsection:43012,name:Tissues & Napkins,products:34,success
+2025-11-11 08:57:37,process.post-menu,114,subsection:43153,name:Refills,products:5,success
+2025-11-11 08:57:38,process.post-menu,114,subsection:43154,name:Incense Sticks,products:9,success
+2025-11-11 08:57:40,process.post-menu,114,subsection:43017,name:Air Fresheners,products:14,success
+2025-11-11 08:57:41,process.post-menu,114,subsection:43155,name:Repelling Lotions,products:0,no_data
+2025-11-11 08:57:42,process.post-menu,114,subsection:43015,name:Coils & Mats,products:2,success
+2025-11-11 08:57:43,process.post-menu,114,subsection:43156,name:Insecticides,products:13,success
+2025-11-11 08:57:45,process.post-menu,114,subsection:43029,name:Pet Food,products:0,no_data
+2025-11-11 08:57:49,process.post-menu,114,subsection:43243,name:Optical Care,products:0,no_data
+2025-11-11 08:57:50,process.post-menu,114,subsection:43160,name:Husk,products:5,success
+2025-11-11 08:57:52,process.post-menu,114,subsection:43019,name:Herbal Medicine,products:1,success
+2025-11-11 08:57:54,process.post-menu,114,subsection:43159,name:Lozenges,products:7,success
+2025-11-11 08:57:56,process.post-menu,114,subsection:43265,name:Sexual Lubricants & Creams,products:3,success
+2025-11-11 08:57:57,process.post-menu,114,subsection:43244,name:Contraceptives,products:6,success
+2025-11-11 08:57:58,process.post-menu,114,complete,total_products:1768,success
+2025-11-15 13:37:06,process.post-menu,54934,start,sections:187,rest_brId:54934,success
+2025-11-15 13:37:07,process.post-menu,54934,subsection:42987,name:Basic,products:0,no_data
+2025-11-15 13:37:08,process.post-menu,54934,subsection:42988,name:Fresh Fruits,products:0,no_data
+2025-11-15 13:37:09,process.post-menu,54934,subsection:42989,name:Fresh Vegetables,products:0,no_data
+2025-11-15 13:37:11,process.post-menu,54934,subsection:42990,name:Meat,products:0,no_data
+2025-11-15 13:37:12,process.post-menu,54934,subsection:42991,name:Poultry,products:0,no_data
+2025-11-15 13:37:13,process.post-menu,54934,subsection:42986,name:Eggs,products:0,no_data
+2025-11-15 13:37:14,process.post-menu,54934,subsection:43267,name:Bread & Buns,products:0,no_data
+2025-11-15 13:37:16,process.post-menu,54934,subsection:43266,name:Biscuit,products:0,no_data
+2025-11-15 13:37:17,process.post-menu,54934,subsection:43268,name:Cake,products:0,no_data
+2025-11-15 13:37:18,process.post-menu,54934,subsection:43269,name:Muffin,products:0,no_data
+2025-11-15 13:37:20,process.post-menu,54934,subsection:43270,name:Rusks,products:0,no_data
+2025-11-15 13:37:21,process.post-menu,54934,subsection:43039,name:Sugar & Gluten Free ,products:1,success
+2025-11-15 13:37:23,process.post-menu,54934,subsection:42954,name:Wafers,products:4,success
+2025-11-15 13:37:24,process.post-menu,54934,subsection:42955,name:Biscuits,products:30,success
+2025-11-15 13:37:26,process.post-menu,54934,subsection:43176,name:Cake Rusk,products:0,no_data
+2025-11-15 13:37:27,process.post-menu,54934,subsection:43042,name:Cakes,products:8,success
+2025-11-15 13:37:28,process.post-menu,54934,subsection:42952,name:Chocolates,products:3,success
+2025-11-15 13:37:29,process.post-menu,54934,subsection:43175,name:Marshmallow,products:1,success
+2025-11-15 13:37:30,process.post-menu,54934,subsection:42953,name:Jellies,products:2,success
+2025-11-15 13:37:32,process.post-menu,54934,subsection:43040,name:Chewing Gum,products:1,success
+2025-11-15 13:37:33,process.post-menu,54934,subsection:43041,name:Candies,products:4,success
+2025-11-15 13:37:34,process.post-menu,54934,subsection:43037,name:Popcorn,products:13,success
+2025-11-15 13:37:35,process.post-menu,54934,subsection:43038,name:Nimco,products:8,success
+2025-11-15 13:37:37,process.post-menu,54934,subsection:42956,name:Crackers,products:9,success
+2025-11-15 13:37:38,process.post-menu,54934,subsection:42957,name:Chips,products:25,success
+2025-11-15 13:37:40,process.post-menu,54934,subsection:43050,name:Malt Drinks,products:13,success
+2025-11-15 13:37:41,process.post-menu,54934,subsection:42966,name:Energy & Soda Drinks,products:3,success
+2025-11-15 13:37:43,process.post-menu,54934,subsection:42967,name:Soft Drinks,products:58,success
+2025-11-15 13:37:44,process.post-menu,54934,subsection:42965,name:Juices & Nectars,products:46,success
+2025-11-15 13:37:46,process.post-menu,54934,subsection:43047,name:Sports Drink,products:2,success
+2025-11-15 13:37:47,process.post-menu,54934,subsection:43048,name:Powdered Malt Drinks,products:3,success
+2025-11-15 13:37:48,process.post-menu,54934,subsection:43049,name:Nutritional Drinks,products:14,success
+2025-11-15 13:37:50,process.post-menu,54934,subsection:42968,name:Cordials & Syrups,products:15,success
+2025-11-15 13:37:51,process.post-menu,54934,subsection:42969,name:Instant Powdered Drinks,products:16,success
+2025-11-15 13:37:52,process.post-menu,54934,subsection:42964,name:Water,products:7,success
+2025-11-15 13:37:53,process.post-menu,54934,subsection:43054,name:Green Tea,products:9,success
+2025-11-15 13:37:55,process.post-menu,54934,subsection:42975,name:Black Tea,products:24,success
+2025-11-15 13:37:56,process.post-menu,54934,subsection:43053,name:Powdered Coffee,products:5,success
+2025-11-15 13:37:57,process.post-menu,54934,subsection:42974,name:Instant Tea & Coffee,products:1,success
+2025-11-15 13:37:59,process.post-menu,54934,subsection:42973,name:Tea Whiteners,products:7,success
+2025-11-15 13:38:00,process.post-menu,54934,subsection:42926,name:Pulses & Grains,products:22,success
+2025-11-15 13:38:01,process.post-menu,54934,subsection:42938,name:Pasta,products:32,success
+2025-11-15 13:38:03,process.post-menu,54934,subsection:42939,name:Noodles & Spaghetti,products:12,success
+2025-11-15 13:38:04,process.post-menu,54934,subsection:42940,name:Instant Noodles,products:6,success
+2025-11-15 13:38:05,process.post-menu,54934,subsection:42921,name:Salt, Spices & Herbs,products:25,success
+2025-11-15 13:38:06,process.post-menu,54934,subsection:42922,name:Spices & Herbs,products:61,success
+2025-11-15 13:38:08,process.post-menu,54934,subsection:43167,name:Pickles,products:14,success
+2025-11-15 13:38:09,process.post-menu,54934,subsection:42923,name:Salt,products:16,success
+2025-11-15 13:38:11,process.post-menu,54934,subsection:42924,name:Recipes Mix,products:100,success
+2025-11-15 13:38:13,process.post-menu,54934,subsection:43077,name:Cereals & Oats,products:17,success
+2025-11-15 13:38:14,process.post-menu,54934,subsection:43228,name:Olive Oil,products:13,success
+2025-11-15 13:38:15,process.post-menu,54934,subsection:42934,name:Corn & Sunflower Oil,products:4,success
+2025-11-15 13:38:17,process.post-menu,54934,subsection:42935,name:Ghee,products:5,success
+2025-11-15 13:38:18,process.post-menu,54934,subsection:42936,name:Canola Oil,products:3,success
+2025-11-15 13:38:19,process.post-menu,54934,subsection:42937,name:Cooking Oil,products:3,success
+2025-11-15 13:38:21,process.post-menu,54934,subsection:42925,name:Rice,products:4,success
+2025-11-15 13:38:22,process.post-menu,54934,subsection:42927,name:Flour,products:8,success
+2025-11-15 13:38:24,process.post-menu,54934,subsection:42928,name:Other Flour,products:5,success
+2025-11-15 13:38:25,process.post-menu,54934,subsection:43256,name:Diet Flour,products:0,no_data
+2025-11-15 13:38:26,process.post-menu,54934,subsection:42943,name:Sugar,products:4,success
+2025-11-15 13:38:28,process.post-menu,54934,subsection:42929,name:Dry Fruits,products:26,success
+2025-11-15 13:38:29,process.post-menu,54934,subsection:42930,name:Dates,products:0,no_data
+2025-11-15 13:38:30,process.post-menu,54934,subsection:43078,name:Vegetables,products:2,success
+2025-11-15 13:38:31,process.post-menu,54934,subsection:43079,name:Fruits,products:1,success
+2025-11-15 13:38:32,process.post-menu,54934,subsection:43216,name:Olives,products:0,no_data
+2025-11-15 13:38:34,process.post-menu,54934,subsection:43168,name:BBQ Sauce,products:2,success
+2025-11-15 13:38:35,process.post-menu,54934,subsection:42931,name:Dressings & Seasonings,products:6,success
+2025-11-15 13:38:36,process.post-menu,54934,subsection:43073,name:Cooking Sauces,products:11,success
+2025-11-15 13:38:38,process.post-menu,54934,subsection:43169,name:Cooking Pastes,products:3,success
+2025-11-15 13:38:39,process.post-menu,54934,subsection:43074,name:Vinegar,products:7,success
+2025-11-15 13:38:40,process.post-menu,54934,subsection:43075,name:Soya Sauce,products:2,success
+2025-11-15 13:38:41,process.post-menu,54934,subsection:43076,name:Chilli Sauce,products:4,success
+2025-11-15 13:38:43,process.post-menu,54934,subsection:42932,name:Mayonnaise,products:9,success
+2025-11-15 13:38:45,process.post-menu,54934,subsection:42933,name:Ketchup,products:23,success
+2025-11-15 13:38:46,process.post-menu,54934,subsection:43172,name:Honey,products:16,success
+2025-11-15 13:38:47,process.post-menu,54934,subsection:43080,name:Chocolate Spread,products:8,success
+2025-11-15 13:38:49,process.post-menu,54934,subsection:43081,name:Jams & Marmalades,products:20,success
+2025-11-15 13:38:50,process.post-menu,54934,subsection:43083,name:Chicken Spread,products:4,success
+2025-11-15 13:38:51,process.post-menu,54934,subsection:43082,name:Traditional Dessert Mixes,products:25,success
+2025-11-15 13:38:52,process.post-menu,54934,subsection:42944,name:Vermicelli,products:8,success
+2025-11-15 13:38:53,process.post-menu,54934,subsection:42945,name:Custard & Jelly Mixes,products:27,success
+2025-11-15 13:38:55,process.post-menu,54934,subsection:43170,name:Tortilla & Wraps,products:2,success
+2025-11-15 13:38:56,process.post-menu,54934,subsection:43251,name:Mutton,products:0,no_data
+2025-11-15 13:38:58,process.post-menu,54934,subsection:43252,name:Beef,products:0,no_data
+2025-11-15 13:38:59,process.post-menu,54934,subsection:43227,name:Vegetable Dishes,products:0,no_data
+2025-11-15 13:39:01,process.post-menu,54934,subsection:43253,name:Rice Dishes,products:0,no_data
+2025-11-15 13:39:02,process.post-menu,54934,subsection:43254,name:Pulses,products:0,no_data
+2025-11-15 13:39:03,process.post-menu,54934,subsection:43255,name:Chicken,products:0,no_data
+2025-11-15 13:39:05,process.post-menu,54934,subsection:43069,name:Baking & Cooking,products:1,success
+2025-11-15 13:39:07,process.post-menu,54934,subsection:43171,name:Sweeteners,products:4,success
+2025-11-15 13:39:08,process.post-menu,54934,subsection:43070,name:Fillings & Toppings,products:2,success
+2025-11-15 13:39:10,process.post-menu,54934,subsection:43071,name:Colour & Essence,products:6,success
+2025-11-15 13:39:12,process.post-menu,54934,subsection:42941,name:Corn Flour,products:1,success
+2025-11-15 13:39:14,process.post-menu,54934,subsection:43072,name:Bread Crumbs,products:1,success
+2025-11-15 13:39:15,process.post-menu,54934,subsection:42942,name:Baking Essentials,products:7,success
+2025-11-15 13:39:16,process.post-menu,54934,subsection:43091,name:Condensed Milk,products:5,success
+2025-11-15 13:39:20,process.post-menu,54934,subsection:43198,name:Powdered Milk,products:5,success
+2025-11-15 13:39:25,process.post-menu,54934,subsection:43001,name:Liquid Milk,products:31,success
+2025-11-15 13:39:26,process.post-menu,54934,subsection:42999,name:Flavoured Milk,products:15,success
+2025-11-15 13:39:29,process.post-menu,54934,subsection:43090,name:Chilled Coffee,products:2,success
+2025-11-15 13:39:33,process.post-menu,54934,subsection:42997,name:Butter & Margarine,products:21,success
+2025-11-15 13:39:39,process.post-menu,54934,subsection:43230,name:Raita,products:0,no_data
+2025-11-15 13:39:43,process.post-menu,54934,subsection:43089,name:Flavoured Yogurt,products:0,no_data
+2025-11-15 13:39:49,process.post-menu,54934,subsection:42998,name:Plain Yogurt,products:0,no_data
+2025-11-15 13:39:52,process.post-menu,54934,subsection:43092,name:Cheese,products:18,success
+2025-11-15 13:39:54,process.post-menu,54934,subsection:43000,name:Cream,products:8,success
+2025-11-15 13:39:55,process.post-menu,54934,subsection:43096,name:Appetizers,products:9,success
+2025-11-15 13:39:56,process.post-menu,54934,subsection:43095,name:Chicken,products:14,success
+2025-11-15 13:39:58,process.post-menu,54934,subsection:43179,name:French Fries,products:0,no_data
+2025-11-15 13:39:59,process.post-menu,54934,subsection:43093,name:Vegetables,products:0,no_data
+2025-11-15 13:40:01,process.post-menu,54934,subsection:43178,name:Fruits,products:0,no_data
+2025-11-15 13:40:02,process.post-menu,54934,subsection:43094,name:Puri & Paratha,products:2,success
+2025-11-15 13:40:04,process.post-menu,54934,subsection:43177,name:Pizza Dough,products:0,no_data
+2025-11-15 13:40:05,process.post-menu,54934,subsection:43108,name:Bottles & Nipples,products:13,success
+2025-11-15 13:40:06,process.post-menu,54934,subsection:43222,name:Feeding Accessories,products:2,success
+2025-11-15 13:40:08,process.post-menu,54934,subsection:43224,name:Lotions, Creams & Moisturizers,products:1,success
+2025-11-15 13:40:09,process.post-menu,54934,subsection:43202,name:Oral Care,products:1,success
+2025-11-15 13:40:11,process.post-menu,54934,subsection:43203,name:Hair Care,products:0,no_data
+2025-11-15 13:40:13,process.post-menu,54934,subsection:43204,name:Baby Care,products:1,success
+2025-11-15 13:40:14,process.post-menu,54934,subsection:43109,name:Wipes and Swabs,products:5,success
+2025-11-15 13:40:17,process.post-menu,54934,subsection:43223,name:Bodywashes & Soaps,products:2,success
+2025-11-15 13:40:18,process.post-menu,54934,subsection:43107,name:Diapers & Pants,products:2,success
+2025-11-15 13:40:20,process.post-menu,54934,subsection:43110,name:Cereals,products:12,success
+2025-11-15 13:40:21,process.post-menu,54934,subsection:43111,name:Formula Milk,products:33,success
+2025-11-15 13:40:22,process.post-menu,54934,subsection:43239,name:Mouthwash,products:3,success
+2025-11-15 13:40:24,process.post-menu,54934,subsection:43132,name:Toothbrushes & Floss,products:47,success
+2025-11-15 13:40:25,process.post-menu,54934,subsection:43024,name:Toothpastes,products:69,success
+2025-11-15 13:40:26,process.post-menu,54934,subsection:43240,name:Oils,products:0,no_data
+2025-11-15 13:40:27,process.post-menu,54934,subsection:43133,name:Lotions,products:6,success
+2025-11-15 13:40:29,process.post-menu,54934,subsection:43261,name:Creams & Moisturizers,products:3,success
+2025-11-15 13:40:30,process.post-menu,54934,subsection:43188,name:Hair Combs & Brushes,products:0,no_data
+2025-11-15 13:40:31,process.post-menu,54934,subsection:43259,name:Hair Treatment & Care,products:0,no_data
+2025-11-15 13:40:33,process.post-menu,54934,subsection:43260,name:Hair Styling,products:1,success
+2025-11-15 13:40:35,process.post-menu,54934,subsection:43130,name:Hair Oils,products:14,success
+2025-11-15 13:40:39,process.post-menu,54934,subsection:43131,name:Hair Colours,products:33,success
+2025-11-15 13:40:42,process.post-menu,54934,subsection:43212,name:Conditioners,products:13,success
+2025-11-15 13:40:43,process.post-menu,54934,subsection:43025,name:Shampoos,products:89,success
+2025-11-15 13:40:45,process.post-menu,54934,subsection:43127,name:Facial Cleansers & Whitening Treatments,products:13,success
+2025-11-15 13:40:47,process.post-menu,54934,subsection:43128,name:Fairness Creams,products:4,success
+2025-11-15 13:40:48,process.post-menu,54934,subsection:43237,name:Masks & Scrubs,products:5,success
+2025-11-15 13:40:49,process.post-menu,54934,subsection:43213,name:Men's Face Washes,products:8,success
+2025-11-15 13:40:51,process.post-menu,54934,subsection:43129,name:Face Washes,products:26,success
+2025-11-15 13:40:53,process.post-menu,54934,subsection:43124,name:Wipes, Swabs & Buds,products:9,success
+2025-11-15 13:40:54,process.post-menu,54934,subsection:43236,name:Adult Diapers & Diaper Pants,products:0,no_data
+2025-11-15 13:40:56,process.post-menu,54934,subsection:43125,name:Anti-Bacterial Soaps,products:43,success
+2025-11-15 13:40:57,process.post-menu,54934,subsection:43189,name:Sanitizers,products:0,no_data
+2025-11-15 13:40:58,process.post-menu,54934,subsection:43190,name:Body Wash,products:5,success
+2025-11-15 13:41:00,process.post-menu,54934,subsection:43126,name:Hand Washes,products:26,success
+2025-11-15 13:41:01,process.post-menu,54934,subsection:43026,name:Soaps,products:61,success
+2025-11-15 13:41:04,process.post-menu,54934,subsection:43214,name:Shaving Cream,products:1,success
+2025-11-15 13:41:05,process.post-menu,54934,subsection:43027,name:Razors and Cartridges,products:7,success
+2025-11-15 13:41:06,process.post-menu,54934,subsection:43192,name:Razors & Wax Strips,products:2,success
+2025-11-15 13:41:09,process.post-menu,54934,subsection:43134,name:Hair Removing Creams,products:21,success
+2025-11-15 13:41:11,process.post-menu,54934,subsection:43135,name:Sanitary Pads,products:31,success
+2025-11-15 13:41:13,process.post-menu,54934,subsection:43191,name:Talcom Powder,products:1,success
+2025-11-15 13:41:14,process.post-menu,54934,subsection:43210,name:Antiperspirants & Roll ons,products:0,no_data
+2025-11-15 13:41:16,process.post-menu,54934,subsection:43211,name:Deodorants, Body Sprays & Mists,products:6,success
+2025-11-15 13:41:17,process.post-menu,54934,subsection:43238,name:Aromatics,products:0,no_data
+2025-11-15 13:41:19,process.post-menu,54934,subsection:43195,name:Bleach,products:6,success
+2025-11-15 13:41:20,process.post-menu,54934,subsection:43150,name:Fabric Softeners,products:3,success
+2025-11-15 13:41:22,process.post-menu,54934,subsection:43151,name:Laundry Essentials,products:8,success
+2025-11-15 13:41:23,process.post-menu,54934,subsection:43016,name:Detergent,products:25,success
+2025-11-15 13:41:24,process.post-menu,54934,subsection:43146,name:Naphthalene Balls,products:2,success
+2025-11-15 13:41:26,process.post-menu,54934,subsection:43147,name:Toilet Essentials,products:24,success
+2025-11-15 13:41:27,process.post-menu,54934,subsection:43148,name:Shoe Care,products:12,success
+2025-11-15 13:41:29,process.post-menu,54934,subsection:43010,name:Kitchen Essentials,products:46,success
+2025-11-15 13:41:31,process.post-menu,54934,subsection:43149,name:Surface Cleaners,products:26,success
+2025-11-15 13:41:32,process.post-menu,54934,subsection:43218,name:Household Cleaners,products:1,success
+2025-11-15 13:41:33,process.post-menu,54934,subsection:43196,name:Cling & Paper Wrap,products:2,success
+2025-11-15 13:41:35,process.post-menu,54934,subsection:43013,name:Garbage Bags,products:4,success
+2025-11-15 13:41:36,process.post-menu,54934,subsection:43014,name:Food Bags,products:0,no_data
+2025-11-15 13:41:37,process.post-menu,54934,subsection:43011,name:Toilet Roll,products:9,success
+2025-11-15 13:41:38,process.post-menu,54934,subsection:43152,name:Kitchen Rolls,products:9,success
+2025-11-15 13:41:40,process.post-menu,54934,subsection:43012,name:Tissues & Napkins,products:33,success
+2025-11-15 13:41:41,process.post-menu,54934,subsection:43153,name:Refills,products:5,success
+2025-11-15 13:41:42,process.post-menu,54934,subsection:43154,name:Incense Sticks,products:9,success
+2025-11-15 13:41:44,process.post-menu,54934,subsection:43017,name:Air Fresheners,products:14,success
+2025-11-15 13:41:45,process.post-menu,54934,subsection:43155,name:Repelling Lotions,products:0,no_data
+2025-11-15 13:41:46,process.post-menu,54934,subsection:43015,name:Coils & Mats,products:3,success
+2025-11-15 13:41:48,process.post-menu,54934,subsection:43156,name:Insecticides,products:13,success
+2025-11-15 13:41:49,process.post-menu,54934,subsection:43029,name:Pet Food,products:0,no_data
+2025-11-15 13:41:50,process.post-menu,54934,subsection:43243,name:Optical Care,products:0,no_data
+2025-11-15 13:41:52,process.post-menu,54934,subsection:43160,name:Husk,products:4,success
+2025-11-15 13:41:53,process.post-menu,54934,subsection:43019,name:Herbal Medicine,products:1,success
+2025-11-15 13:41:54,process.post-menu,54934,subsection:43159,name:Lozenges,products:7,success
+2025-11-15 13:41:55,process.post-menu,54934,subsection:43265,name:Sexual Lubricants & Creams,products:3,success
+2025-11-15 13:41:56,process.post-menu,54934,subsection:43244,name:Contraceptives,products:8,success
+2025-11-15 13:41:57,process.post-menu,54934,complete,total_products:1940,success
+2025-11-15 13:41:57,process.post-menu,54943,start,sections:187,rest_brId:54943,success
+2025-11-15 13:41:58,process.post-menu,54943,subsection:42987,name:Basic,products:8,success
+2025-11-15 13:41:59,process.post-menu,54943,subsection:42988,name:Fresh Fruits,products:1,success
+2025-11-15 13:42:00,process.post-menu,54943,subsection:42989,name:Fresh Vegetables,products:3,success
+2025-11-15 13:42:01,process.post-menu,54943,subsection:42990,name:Meat,products:12,success
+2025-11-15 13:42:02,process.post-menu,54943,subsection:42991,name:Poultry,products:6,success
+2025-11-15 13:42:04,process.post-menu,54943,subsection:42986,name:Eggs,products:0,no_data
+2025-11-15 13:42:05,process.post-menu,54943,subsection:43267,name:Bread & Buns,products:0,no_data
+2025-11-15 13:42:06,process.post-menu,54943,subsection:43266,name:Biscuit,products:0,no_data
+2025-11-15 13:42:08,process.post-menu,54943,subsection:43268,name:Cake,products:0,no_data
+2025-11-15 13:42:09,process.post-menu,54943,subsection:43269,name:Muffin,products:0,no_data
+2025-11-15 13:42:10,process.post-menu,54943,subsection:43270,name:Rusks,products:0,no_data
+2025-11-15 13:42:11,process.post-menu,54943,subsection:43039,name:Sugar & Gluten Free ,products:3,success
+2025-11-15 13:42:12,process.post-menu,54943,subsection:42954,name:Wafers,products:1,success
+2025-11-15 13:42:14,process.post-menu,54943,subsection:42955,name:Biscuits,products:27,success
+2025-11-15 13:42:15,process.post-menu,54943,subsection:43176,name:Cake Rusk,products:0,no_data
+2025-11-15 13:42:16,process.post-menu,54943,subsection:43042,name:Cakes,products:5,success
+2025-11-15 13:42:17,process.post-menu,54943,subsection:42952,name:Chocolates,products:12,success
+2025-11-15 13:42:19,process.post-menu,54943,subsection:43175,name:Marshmallow,products:0,no_data
+2025-11-15 13:42:20,process.post-menu,54943,subsection:42953,name:Jellies,products:0,no_data
+2025-11-15 13:42:22,process.post-menu,54943,subsection:43040,name:Chewing Gum,products:5,success
+2025-11-15 13:42:23,process.post-menu,54943,subsection:43041,name:Candies,products:9,success
+2025-11-15 13:42:26,process.post-menu,54943,subsection:43037,name:Popcorn,products:11,success
+2025-11-15 13:42:30,process.post-menu,54943,subsection:43038,name:Nimco,products:8,success
+2025-11-15 13:42:32,process.post-menu,54943,subsection:42956,name:Crackers,products:15,success
+2025-11-15 13:42:33,process.post-menu,54943,subsection:42957,name:Chips,products:19,success
+2025-11-15 13:42:34,process.post-menu,54943,subsection:43050,name:Malt Drinks,products:21,success
+2025-11-15 13:42:36,process.post-menu,54943,subsection:42966,name:Energy & Soda Drinks,products:6,success
+2025-11-15 13:42:37,process.post-menu,54943,subsection:42967,name:Soft Drinks,products:83,success
+2025-11-15 13:42:40,process.post-menu,54943,subsection:42965,name:Juices & Nectars,products:118,success
+2025-11-15 13:42:41,process.post-menu,54943,subsection:43047,name:Sports Drink,products:3,success
+2025-11-15 13:42:42,process.post-menu,54943,subsection:43048,name:Powdered Malt Drinks,products:7,success
+2025-11-15 13:42:43,process.post-menu,54943,subsection:43049,name:Nutritional Drinks,products:17,success
+2025-11-15 13:42:45,process.post-menu,54943,subsection:42968,name:Cordials & Syrups,products:17,success
+2025-11-15 13:42:46,process.post-menu,54943,subsection:42969,name:Instant Powdered Drinks,products:19,success
+2025-11-15 13:42:47,process.post-menu,54943,subsection:42964,name:Water,products:12,success
+2025-11-15 13:42:48,process.post-menu,54943,subsection:43054,name:Green Tea,products:14,success
+2025-11-15 13:42:49,process.post-menu,54943,subsection:42975,name:Black Tea,products:45,success
+2025-11-15 13:42:51,process.post-menu,54943,subsection:43053,name:Powdered Coffee,products:4,success
+2025-11-15 13:42:52,process.post-menu,54943,subsection:42974,name:Instant Tea & Coffee,products:8,success
+2025-11-15 13:42:53,process.post-menu,54943,subsection:42973,name:Tea Whiteners,products:6,success
+2025-11-15 13:42:54,process.post-menu,54943,subsection:42926,name:Pulses & Grains,products:20,success
+2025-11-15 13:42:56,process.post-menu,54943,subsection:42938,name:Pasta,products:38,success
+2025-11-15 13:42:57,process.post-menu,54943,subsection:42939,name:Noodles & Spaghetti,products:11,success
+2025-11-15 13:42:59,process.post-menu,54943,subsection:42940,name:Instant Noodles,products:9,success
+2025-11-15 13:43:00,process.post-menu,54943,subsection:42921,name:Salt, Spices & Herbs,products:22,success
+2025-11-15 13:43:01,process.post-menu,54943,subsection:42922,name:Spices & Herbs,products:60,success
+2025-11-15 13:43:03,process.post-menu,54943,subsection:43167,name:Pickles,products:16,success
+2025-11-15 13:43:04,process.post-menu,54943,subsection:42923,name:Salt,products:7,success
+2025-11-15 13:43:06,process.post-menu,54943,subsection:42924,name:Recipes Mix,products:121,success
+2025-11-15 13:43:07,process.post-menu,54943,subsection:43077,name:Cereals & Oats,products:32,success
+2025-11-15 13:43:09,process.post-menu,54943,subsection:43228,name:Olive Oil,products:16,success
+2025-11-15 13:43:10,process.post-menu,54943,subsection:42934,name:Corn & Sunflower Oil,products:4,success
+2025-11-15 13:43:11,process.post-menu,54943,subsection:42935,name:Ghee,products:5,success
+2025-11-15 13:43:12,process.post-menu,54943,subsection:42936,name:Canola Oil,products:3,success
+2025-11-15 13:43:13,process.post-menu,54943,subsection:42937,name:Cooking Oil,products:2,success
+2025-11-15 13:43:15,process.post-menu,54943,subsection:42925,name:Rice,products:2,success
+2025-11-15 13:43:16,process.post-menu,54943,subsection:42927,name:Flour,products:5,success
+2025-11-15 13:43:17,process.post-menu,54943,subsection:42928,name:Other Flour,products:3,success
+2025-11-15 13:43:18,process.post-menu,54943,subsection:43256,name:Diet Flour,products:0,no_data
+2025-11-15 13:43:20,process.post-menu,54943,subsection:42943,name:Sugar,products:4,success
+2025-11-15 13:43:21,process.post-menu,54943,subsection:42929,name:Dry Fruits,products:29,success
+2025-11-15 13:43:22,process.post-menu,54943,subsection:42930,name:Dates,products:0,no_data
+2025-11-15 13:43:23,process.post-menu,54943,subsection:43078,name:Vegetables,products:0,no_data
+2025-11-15 13:43:25,process.post-menu,54943,subsection:43079,name:Fruits,products:0,no_data
+2025-11-15 13:43:26,process.post-menu,54943,subsection:43216,name:Olives,products:0,no_data
+2025-11-15 13:43:27,process.post-menu,54943,subsection:43168,name:BBQ Sauce,products:1,success
+2025-11-15 13:43:29,process.post-menu,54943,subsection:42931,name:Dressings & Seasonings,products:15,success
+2025-11-15 13:43:30,process.post-menu,54943,subsection:43073,name:Cooking Sauces,products:9,success
+2025-11-15 13:43:31,process.post-menu,54943,subsection:43169,name:Cooking Pastes,products:10,success
+2025-11-15 13:43:32,process.post-menu,54943,subsection:43074,name:Vinegar,products:8,success
+2025-11-15 13:43:33,process.post-menu,54943,subsection:43075,name:Soya Sauce,products:1,success
+2025-11-15 13:43:35,process.post-menu,54943,subsection:43076,name:Chilli Sauce,products:4,success
+2025-11-15 13:43:36,process.post-menu,54943,subsection:42932,name:Mayonnaise,products:11,success
+2025-11-15 13:43:37,process.post-menu,54943,subsection:42933,name:Ketchup,products:17,success
+2025-11-15 13:43:38,process.post-menu,54943,subsection:43172,name:Honey,products:11,success
+2025-11-15 13:43:39,process.post-menu,54943,subsection:43080,name:Chocolate Spread,products:8,success
+2025-11-15 13:43:41,process.post-menu,54943,subsection:43081,name:Jams & Marmalades,products:20,success
+2025-11-15 13:43:42,process.post-menu,54943,subsection:43083,name:Chicken Spread,products:8,success
+2025-11-15 13:43:43,process.post-menu,54943,subsection:43082,name:Traditional Dessert Mixes,products:24,success
+2025-11-15 13:43:44,process.post-menu,54943,subsection:42944,name:Vermicelli,products:10,success
+2025-11-15 13:43:45,process.post-menu,54943,subsection:42945,name:Custard & Jelly Mixes,products:27,success
+2025-11-15 13:43:47,process.post-menu,54943,subsection:43170,name:Tortilla & Wraps,products:0,no_data
+2025-11-15 13:43:48,process.post-menu,54943,subsection:43251,name:Mutton,products:0,no_data
+2025-11-15 13:43:49,process.post-menu,54943,subsection:43252,name:Beef,products:0,no_data
+2025-11-15 13:43:50,process.post-menu,54943,subsection:43227,name:Vegetable Dishes,products:0,no_data
+2025-11-15 13:43:52,process.post-menu,54943,subsection:43253,name:Rice Dishes,products:0,no_data
+2025-11-15 13:43:53,process.post-menu,54943,subsection:43254,name:Pulses,products:0,no_data
+2025-11-15 13:43:56,process.post-menu,54943,subsection:43255,name:Chicken,products:0,no_data
+2025-11-15 13:43:57,process.post-menu,54943,subsection:43069,name:Baking & Cooking,products:1,success
+2025-11-15 13:43:58,process.post-menu,54943,subsection:43171,name:Sweeteners,products:4,success
+2025-11-15 13:44:00,process.post-menu,54943,subsection:43070,name:Fillings & Toppings,products:3,success
+2025-11-15 13:44:01,process.post-menu,54943,subsection:43071,name:Colour & Essence,products:6,success
+2025-11-15 13:44:03,process.post-menu,54943,subsection:42941,name:Corn Flour,products:1,success
+2025-11-15 13:44:04,process.post-menu,54943,subsection:43072,name:Bread Crumbs,products:1,success
+2025-11-15 13:44:06,process.post-menu,54943,subsection:42942,name:Baking Essentials,products:7,success
+2025-11-15 13:44:07,process.post-menu,54943,subsection:43091,name:Condensed Milk,products:4,success
+2025-11-15 13:44:09,process.post-menu,54943,subsection:43198,name:Powdered Milk,products:5,success
+2025-11-15 13:44:10,process.post-menu,54943,subsection:43001,name:Liquid Milk,products:19,success
+2025-11-15 13:44:12,process.post-menu,54943,subsection:42999,name:Flavoured Milk,products:30,success
+2025-11-15 13:44:14,process.post-menu,54943,subsection:43090,name:Chilled Coffee,products:10,success
+2025-11-15 13:44:16,process.post-menu,54943,subsection:42997,name:Butter & Margarine,products:0,no_data
+2025-11-15 13:44:17,process.post-menu,54943,subsection:43230,name:Raita,products:0,no_data
+2025-11-15 13:44:18,process.post-menu,54943,subsection:43089,name:Flavoured Yogurt,products:0,no_data
+2025-11-15 13:44:20,process.post-menu,54943,subsection:42998,name:Plain Yogurt,products:0,no_data
+2025-11-15 13:44:21,process.post-menu,54943,subsection:43092,name:Cheese,products:18,success
+2025-11-15 13:44:22,process.post-menu,54943,subsection:43000,name:Cream,products:5,success
+2025-11-15 13:44:24,process.post-menu,54943,subsection:43096,name:Appetizers,products:39,success
+2025-11-15 13:44:25,process.post-menu,54943,subsection:43095,name:Chicken,products:14,success
+2025-11-15 13:44:26,process.post-menu,54943,subsection:43179,name:French Fries,products:0,no_data
+2025-11-15 13:44:28,process.post-menu,54943,subsection:43093,name:Vegetables,products:0,no_data
+2025-11-15 13:44:29,process.post-menu,54943,subsection:43178,name:Fruits,products:0,no_data
+2025-11-15 13:44:30,process.post-menu,54943,subsection:43094,name:Puri & Paratha,products:15,success
+2025-11-15 13:44:31,process.post-menu,54943,subsection:43177,name:Pizza Dough,products:0,no_data
+2025-11-15 13:44:32,process.post-menu,54943,subsection:43108,name:Bottles & Nipples,products:3,success
+2025-11-15 13:44:34,process.post-menu,54943,subsection:43222,name:Feeding Accessories,products:1,success
+2025-11-15 13:44:35,process.post-menu,54943,subsection:43224,name:Lotions, Creams & Moisturizers,products:1,success
+2025-11-15 13:44:36,process.post-menu,54943,subsection:43202,name:Oral Care,products:1,success
+2025-11-15 13:44:37,process.post-menu,54943,subsection:43203,name:Hair Care,products:3,success
+2025-11-15 13:44:39,process.post-menu,54943,subsection:43204,name:Baby Care,products:0,no_data
+2025-11-15 13:44:40,process.post-menu,54943,subsection:43109,name:Wipes and Swabs,products:6,success
+2025-11-15 13:44:43,process.post-menu,54943,subsection:43223,name:Bodywashes & Soaps,products:3,success
+2025-11-15 13:44:44,process.post-menu,54943,subsection:43107,name:Diapers & Pants,products:4,success
+2025-11-15 13:44:45,process.post-menu,54943,subsection:43110,name:Cereals,products:12,success
+2025-11-15 13:44:47,process.post-menu,54943,subsection:43111,name:Formula Milk,products:29,success
+2025-11-15 13:44:48,process.post-menu,54943,subsection:43239,name:Mouthwash,products:14,success
+2025-11-15 13:44:50,process.post-menu,54943,subsection:43132,name:Toothbrushes & Floss,products:56,success
+2025-11-15 13:44:51,process.post-menu,54943,subsection:43024,name:Toothpastes,products:93,success
+2025-11-15 13:44:53,process.post-menu,54943,subsection:43240,name:Oils,products:1,success
+2025-11-15 13:44:54,process.post-menu,54943,subsection:43133,name:Lotions,products:13,success
+2025-11-15 13:44:55,process.post-menu,54943,subsection:43261,name:Creams & Moisturizers,products:7,success
+2025-11-15 13:44:57,process.post-menu,54943,subsection:43188,name:Hair Combs & Brushes,products:25,success
+2025-11-15 13:44:58,process.post-menu,54943,subsection:43259,name:Hair Treatment & Care,products:36,success
+2025-11-15 13:45:01,process.post-menu,54943,subsection:43260,name:Hair Styling,products:20,success
+2025-11-15 13:45:03,process.post-menu,54943,subsection:43130,name:Hair Oils,products:24,success
+2025-11-15 13:45:06,process.post-menu,54943,subsection:43131,name:Hair Colours,products:118,success
+2025-11-15 13:45:07,process.post-menu,54943,subsection:43212,name:Conditioners,products:41,success
+2025-11-15 13:45:10,process.post-menu,54943,subsection:43025,name:Shampoos,products:142,success
+2025-11-15 13:45:11,process.post-menu,54943,subsection:43127,name:Facial Cleansers & Whitening Treatments,products:37,success
+2025-11-15 13:45:13,process.post-menu,54943,subsection:43128,name:Fairness Creams,products:22,success
+2025-11-15 13:45:14,process.post-menu,54943,subsection:43237,name:Masks & Scrubs,products:22,success
+2025-11-15 13:45:15,process.post-menu,54943,subsection:43213,name:Men's Face Washes,products:12,success
+2025-11-15 13:45:16,process.post-menu,54943,subsection:43129,name:Face Washes,products:64,success
+2025-11-15 13:45:18,process.post-menu,54943,subsection:43124,name:Wipes, Swabs & Buds,products:8,success
+2025-11-15 13:45:19,process.post-menu,54943,subsection:43236,name:Adult Diapers & Diaper Pants,products:21,success
+2025-11-15 13:45:20,process.post-menu,54943,subsection:43125,name:Anti-Bacterial Soaps,products:70,success
+2025-11-15 13:45:21,process.post-menu,54943,subsection:43189,name:Sanitizers,products:12,success
+2025-11-15 13:45:23,process.post-menu,54943,subsection:43190,name:Body Wash,products:10,success
+2025-11-15 13:45:24,process.post-menu,54943,subsection:43126,name:Hand Washes,products:38,success
+2025-11-15 13:45:26,process.post-menu,54943,subsection:43026,name:Soaps,products:114,success
+2025-11-15 13:45:28,process.post-menu,54943,subsection:43214,name:Shaving Cream,products:1,success
+2025-11-15 13:45:29,process.post-menu,54943,subsection:43027,name:Razors and Cartridges,products:12,success
+2025-11-15 13:45:32,process.post-menu,54943,subsection:43192,name:Razors & Wax Strips,products:7,success
+2025-11-15 13:45:34,process.post-menu,54943,subsection:43134,name:Hair Removing Creams,products:30,success
+2025-11-15 13:45:36,process.post-menu,54943,subsection:43135,name:Sanitary Pads,products:40,success
+2025-11-15 13:45:38,process.post-menu,54943,subsection:43191,name:Talcom Powder,products:4,success
+2025-11-15 13:45:39,process.post-menu,54943,subsection:43210,name:Antiperspirants & Roll ons,products:9,success
+2025-11-15 13:45:40,process.post-menu,54943,subsection:43211,name:Deodorants, Body Sprays & Mists,products:26,success
+2025-11-15 13:45:41,process.post-menu,54943,subsection:43238,name:Aromatics,products:26,success
+2025-11-15 13:45:42,process.post-menu,54943,subsection:43195,name:Bleach,products:9,success
+2025-11-15 13:45:44,process.post-menu,54943,subsection:43150,name:Fabric Softeners,products:12,success
+2025-11-15 13:45:45,process.post-menu,54943,subsection:43151,name:Laundry Essentials,products:10,success
+2025-11-15 13:45:46,process.post-menu,54943,subsection:43016,name:Detergent,products:10,success
+2025-11-15 13:45:47,process.post-menu,54943,subsection:43146,name:Naphthalene Balls,products:5,success
+2025-11-15 13:45:48,process.post-menu,54943,subsection:43147,name:Toilet Essentials,products:16,success
+2025-11-15 13:45:50,process.post-menu,54943,subsection:43148,name:Shoe Care,products:26,success
+2025-11-15 13:45:51,process.post-menu,54943,subsection:43010,name:Kitchen Essentials,products:44,success
+2025-11-15 13:45:52,process.post-menu,54943,subsection:43149,name:Surface Cleaners,products:32,success
+2025-11-15 13:45:54,process.post-menu,54943,subsection:43218,name:Household Cleaners,products:2,success
+2025-11-15 13:45:55,process.post-menu,54943,subsection:43196,name:Cling & Paper Wrap,products:0,no_data
+2025-11-15 13:45:56,process.post-menu,54943,subsection:43013,name:Garbage Bags,products:0,no_data
+2025-11-15 13:45:57,process.post-menu,54943,subsection:43014,name:Food Bags,products:1,success
+2025-11-15 13:45:59,process.post-menu,54943,subsection:43011,name:Toilet Roll,products:10,success
+2025-11-15 13:46:00,process.post-menu,54943,subsection:43152,name:Kitchen Rolls,products:9,success
+2025-11-15 13:46:01,process.post-menu,54943,subsection:43012,name:Tissues & Napkins,products:35,success
+2025-11-15 13:46:02,process.post-menu,54943,subsection:43153,name:Refills,products:6,success
+2025-11-15 13:46:03,process.post-menu,54943,subsection:43154,name:Incense Sticks,products:10,success
+2025-11-15 13:46:05,process.post-menu,54943,subsection:43017,name:Air Fresheners,products:23,success
+2025-11-15 13:46:06,process.post-menu,54943,subsection:43155,name:Repelling Lotions,products:0,no_data
+2025-11-15 13:46:07,process.post-menu,54943,subsection:43015,name:Coils & Mats,products:7,success
+2025-11-15 13:46:08,process.post-menu,54943,subsection:43156,name:Insecticides,products:36,success
+2025-11-15 13:46:09,process.post-menu,54943,subsection:43029,name:Pet Food,products:1,success
+2025-11-15 13:46:11,process.post-menu,54943,subsection:43243,name:Optical Care,products:0,no_data
+2025-11-15 13:46:12,process.post-menu,54943,subsection:43160,name:Husk,products:0,no_data
+2025-11-15 13:46:13,process.post-menu,54943,subsection:43019,name:Herbal Medicine,products:8,success
+2025-11-15 13:46:14,process.post-menu,54943,subsection:43159,name:Lozenges,products:7,success
+2025-11-15 13:46:15,process.post-menu,54943,subsection:43265,name:Sexual Lubricants & Creams,products:3,success
+2025-11-15 13:46:17,process.post-menu,54943,subsection:43244,name:Contraceptives,products:5,success
+2025-11-15 13:46:18,process.post-menu,54943,complete,total_products:2865,success

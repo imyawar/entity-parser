@@ -1,0 +1,18 @@
+{
+  "store_id": 27,
+  "store_name": "Metro Other Store",
+  "location": "Other Store",
+  "city": "Other Store",
+  "state": "Punjab",
+  "address": "Other Store, Other Store",
+  "zipcode": "N/A",
+  "latitude": 0.0,
+  "longitude": 0.0,
+  "phone": "N/A",
+  "is_active": true,
+  "default_city": false,
+  "has_geometry": false,
+  "geometry": [],
+  "city_polygon": [],
+  "next_day_polygon": []
+}
