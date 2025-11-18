@@ -1,0 +1,14 @@
+from common.ParserName import ParserName
+from common.ActionName import ActionName
+from lambda_function import lambda_handler
+
+e = {
+    "parser": ParserName.imtiaz.name,
+    "action": ActionName.PROCESS_LOCATION.value,
+    "use_proxy": False,
+    "page_size": 500,
+    "offset": 0,
+    "has_more": True,
+}
+
+print(lambda_handler(e, None))
