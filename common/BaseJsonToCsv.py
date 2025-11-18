@@ -65,7 +65,7 @@ class BaseJsonToCsv(JSONMixin):
             self.local_utils = LocalUtils(self.local_data_path)
             self.file_utils = self.local_utils
 
-        self.read_cbsa_text()
+        # self.read_cbsa_text()
         self.brand_map = {
             ParserName.rc.name: 1, ParserName.daves.name: 2, ParserName.zaxbys.name: 3,
             ParserName.chickfila.name: 4, ParserName.kfc.name: 5, ParserName.wendy.name: 6,
@@ -397,8 +397,8 @@ class BaseJsonToCsv(JSONMixin):
             if cbsa is not None:
                 cbsa_id=cbsa['CBSAFP']
 
-        cbsa_name = self.cbsa_map.get(cbsa_id, 'N/A')
-
+        # cbsa_name = self.cbsa_map.get(cbsa_id, 'N/A')
+        cbsa_name = 'N/A'
         return {
             'menu_name': self.clean_text(menu_name),
             'menu_name_clean': self.clean_text_remove_special_characters(menu_name),

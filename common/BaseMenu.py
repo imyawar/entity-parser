@@ -162,15 +162,15 @@ class BaseMenu(JSONMixin, APIMixin):
                 store_data = self.__read_location_json(j_filename)
                 store_data['scrape_date'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 # store_data_cbsa = self.attach_cbsa(store_data)
-                cbsa= self.find_cbsa(store_data['latitude'], store_data['longitude'])
-                if cbsa is not None:
-                    store_data['CBSAFP']=cbsa['CBSAFP']
-                    store_data['GEOID'] = cbsa['GEOID']
-                    store_data['CSAFP'] = cbsa['CSAFP']
-                else:
-                    store_data['CBSAFP']= '0'
-                    store_data['GEOID'] = '0'
-                    store_data['CSAFP'] = '0'
+                # cbsa= self.find_cbsa(store_data['latitude'], store_data['longitude'])
+                # if cbsa is not None:
+                #     store_data['CBSAFP']=cbsa['CBSAFP']
+                #     store_data['GEOID'] = cbsa['GEOID']
+                #     store_data['CSAFP'] = cbsa['CSAFP']
+                # else:
+                #     store_data['CBSAFP']= '0'
+                #     store_data['GEOID'] = '0'
+                #     store_data['CSAFP'] = '0'
 
                 if self.force_fetch or not self.file_utils.file_exists(self.output_file_path, j_filename):
                     logging.info(f"[{self.get_service_name()}] Start: processing record:{i}, filename:{j_filename}")

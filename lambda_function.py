@@ -49,9 +49,9 @@ from imtiaz.ImtiazLocation import ImtiazLocation
 from imtiaz.ImtiazMenu import ImtiazMenu
 from imtiaz.ImtiazJsonToCsv import ImtiazJsonToCsv
 from imtiaz.ImtiazPostMenu import ImtiazPostMenu
-# from metro.MetroLocation import MetroLocation
-# from metro.MetroMenu import MetroMenu
-# from metro.MetroJsonToCsv import MetroJsonToCsv
+from metro.MetroLocation import MetroLocation
+from metro.MetroMenu import MetroMenu
+from metro.MetroJsonToCsv import MetroJsonToCsv
 
 logging.getLogger().setLevel('INFO')
 
@@ -109,6 +109,13 @@ def get_parser(action, parser, events, context):
             return ImtiazPostMenu(events, context)
         elif action == ActionName.MAKE_CSV.value:
             return ImtiazJsonToCsv(events, context)
+    elif parser == ParserName.metro.name:
+        if action == ActionName.PROCESS_LOCATION.value:
+            return MetroLocation(events, context)
+        elif action == ActionName.PROCESS_MENU.value:
+            return MetroMenu(events, context)
+        elif action == ActionName.MAKE_CSV.value:
+            return MetroJsonToCsv(events, context)
     # if parser == ParserName.chickfila.name:
     #     if action == ActionName.PROCESS_LOCATION.value:
     #         return CFALocation(events, context)
