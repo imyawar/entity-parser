@@ -14,14 +14,14 @@ class MetroJsonToCsv(BaseJsonToCsv):
     def __init__(self, event, context):
         parser_path = os.path.dirname(os.path.abspath(__file__))
         super().__init__(event, parser_path, context)
+        
+        if not self.running_in_lambda:
+            self.input_file_path = "post-menu"
     
     def get_service_name(self):
         return "metro"
     
     def parse_menu_csv(self):
-        """
-        Override to fix file path issue when reading menu JSONs
-        """
         all_files = self.file_utils.list(self.input_file_path+"/")
         total_records = len(all_files)
         self.offset_end = total_records + 1
@@ -50,16 +50,12 @@ class MetroJsonToCsv(BaseJsonToCsv):
                         self.file_utils.download_object(f_name,
                                                         os.path.join(self.local_data_path, f_name))
                     try:
-                        
                         if self.running_in_lambda:
                             file_path = os.path.join(self.local_data_path, f_name)
                         else:
-                            
                             if os.path.sep in f_name or '/' in f_name:
-                                
                                 file_path = os.path.join(self.local_data_path, f_name)
                             else:
-                                
                                 file_path = os.path.join(self.local_data_path, self.input_file_path, f_name)
                         
                         item_details_json = self.read_from_json_file(file_path)
@@ -87,7 +83,6 @@ class MetroJsonToCsv(BaseJsonToCsv):
             logging.info(f"[{self.get_service_name()}] All menu items are parsed, Total record: {total_records}")
             all_parsed = True
 
-        
         if self.running_in_lambda:
             print("Uploading to s3: " + str(os.path.join(self.output_file_path, temp_file_name)))
             self.file_utils.upload_object(key, os.path.join(self.output_file_path, temp_file_name))
@@ -126,9 +121,6 @@ class MetroJsonToCsv(BaseJsonToCsv):
             }
     
     def write_menu_to_csv(self, api_response, store_id, writer=None):
-        """
-        Parse Metro menu JSON and write to CSV using standard columns
-        """
         try:
             store_detail = api_response.get('store', {})
             menu_details = api_response.get('menu_detail', {})
@@ -139,22 +131,17 @@ class MetroJsonToCsv(BaseJsonToCsv):
             
             for product in products:
                 try:
-                    
                     product_id = product.get('id', 'N/A')
                     product_name = product.get('product_name', 'N/A')
                     description = product.get('description', 'N/A')
                     
-                    
                     price = product.get('price', 0)
-                    
                     
                     tier3_id = product.get('tier3Id', 'N/A')
                     tier3_name = product.get('tier3Name', 'N/A')
                     fetch_category = product.get('fetch_category', tier3_name)
                     
-                    
                     image_url = product.get('url', 'N/A')
-                    
                     
                     row = self.gen_csv_row(
                         menu_name=product_name,
@@ -166,7 +153,6 @@ class MetroJsonToCsv(BaseJsonToCsv):
                         store=store_detail,
                         image_url=image_url
                     )
-                    
                     
                     if writer:
                         writer.writerow(row)
@@ -180,13 +166,11 @@ class MetroJsonToCsv(BaseJsonToCsv):
 
 
 def lambda_handler(event, context):
-    """AWS Lambda handler"""
     csv_generator = MetroJsonToCsv(event, context)
     return csv_generator.parse_menu_csv()
 
 
 if __name__ == "__main__":
-    """For local testing"""
     event = {
         "use_proxy": False,
         "page_size": 100,
@@ -195,7 +179,7 @@ if __name__ == "__main__":
     
     class MockContext:
         def get_remaining_time_in_millis(self):
-            return 300000  # 5 minutes
+            return 300000
     
     result = lambda_handler(event, MockContext())
     print(f"CSV generation result: {result}")

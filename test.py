@@ -106,6 +106,11 @@ def test_metro(action, page_size=999999, offset=0, use_proxy=False):
             parser = MetroMenu(event, context)
             result = parser.gen_menu()
 
+        elif action == "PROCESS_POST_MENU" or action == ActionName.PROCESS_POST_MENU:
+            from metro.MetroPostMenu import MetroPostMenu
+            parser = MetroPostMenu(event, context)
+            result = parser.associate_missing_price()
+
         elif action == "MAKE_CSV" or action == ActionName.MAKE_CSV:
             from metro.MetroJsonToCsv import MetroJsonToCsv
             parser = MetroJsonToCsv(event, context)
@@ -161,7 +166,15 @@ def run_metro_full_flow():
             return False
 
         print("\n" + "=" * 60)
-        print("STEP 3: CSV GENERATION")
+        print("STEP 3: POST MENU PROCESSING")
+        print("=" * 60)
+        results['post_menu'] = test_metro("PROCESS_POST_MENU")
+        if not results['post_menu']:
+            print("\nPost menu step failed. Stopping.")
+            return False
+
+        print("\n" + "=" * 60)
+        print("STEP 4: CSV GENERATION")
         print("=" * 60)
         results['csv'] = test_metro("MAKE_CSV")
 
@@ -204,13 +217,14 @@ def show_metro_menu():
 
     while True:
         print("\nChoose test option:")
-        print("1. Full flow (Location → Menu → CSV)")
+        print("1. Full flow (Location -> Menu -> Post Menu -> CSV)")
         print("2. Test Location only")
         print("3. Test Menu only")
-        print("4. Test CSV only")
-        print("5. Exit")
+        print("4. Test Post Menu only")
+        print("5. Test CSV only")
+        print("6. Exit")
 
-        choice = input("\nEnter choice (1-5): ").strip()
+        choice = input("\nEnter choice (1-6): ").strip()
 
         try:
             if choice == "1":
@@ -220,11 +234,13 @@ def show_metro_menu():
             elif choice == "3":
                 test_metro("PROCESS_MENU")
             elif choice == "4":
-                test_metro("MAKE_CSV")
+                test_metro("PROCESS_POST_MENU")
             elif choice == "5":
+                test_metro("MAKE_CSV")
+            elif choice == "6":
                 break
             else:
-                print("Invalid choice. Please enter 1-5.")
+                print("Invalid choice. Please enter 1-6.")
         except KeyboardInterrupt:
             print("\nInterrupted by user")
             continue
@@ -246,7 +262,7 @@ def main():
         else:
             print(f"Unknown parser: {parser_name}")
             print("Usage: python test.py metro [ACTION]")
-            print("Actions: PROCESS_LOCATION, PROCESS_MENU, MAKE_CSV, FULL")
+            print("Actions: PROCESS_LOCATION, PROCESS_MENU, PROCESS_POST_MENU, MAKE_CSV, FULL")
     else:
         show_metro_menu()
 
