@@ -153,7 +153,9 @@ class ProcessLogs:
                 next_action = ActionName.MAKE_CSV.value
                 if (parser == ParserName.hardees.name
                         or parser == ParserName.cjr.name
-                        or parser == ParserName.popeyes.name):
+                        or parser == ParserName.popeyes.name
+                        or parser == ParserName.metro.name
+                        or parser == ParserName.imtiaz.name):
                     next_action = ActionName.PROCESS_POST_MENU.value
                 return {
                     "parser": parser,

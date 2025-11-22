@@ -52,6 +52,7 @@ from imtiaz.ImtiazPostMenu import ImtiazPostMenu
 from metro.MetroLocation import MetroLocation
 from metro.MetroMenu import MetroMenu
 from metro.MetroJsonToCsv import MetroJsonToCsv
+from metro.MetroPostMenu import MetroPostMenu
 
 logging.getLogger().setLevel('INFO')
 
@@ -114,6 +115,8 @@ def get_parser(action, parser, events, context):
             return MetroLocation(events, context)
         elif action == ActionName.PROCESS_MENU.value:
             return MetroMenu(events, context)
+        elif action == ActionName.PROCESS_POST_MENU.value:
+            return MetroPostMenu(events, context)
         elif action == ActionName.MAKE_CSV.value:
             return MetroJsonToCsv(events, context)
     # if parser == ParserName.chickfila.name:

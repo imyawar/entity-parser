@@ -62,7 +62,7 @@ class BaseMenu(JSONMixin, APIMixin):
         # Instantiate S3Utils or LocalUtils
         if "AWS_LAMBDA_FUNCTION_VERSION" in os.environ:
             print("in Lambda")
-            self.bucket_name = "plotresin"
+            self.bucket_name = "scrapers-resturantlambda"
             self.date_str = Utils(event).get_directory_name()
             self.version = self.date_str
             self.input_file_path = f"location/{self.date_str}/{self.get_service_name()}"
