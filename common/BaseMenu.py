@@ -59,7 +59,7 @@ class BaseMenu(JSONMixin, APIMixin):
         if "goto_next_step" in event:
             self.goto_next_step = event["goto_next_step"]
 
-        # Instantiate S3Utils or LocalUtils
+        
         if "AWS_LAMBDA_FUNCTION_VERSION" in os.environ:
             print("in Lambda")
             self.bucket_name = "scrapers-resturantlambda"
@@ -71,7 +71,7 @@ class BaseMenu(JSONMixin, APIMixin):
             self.status_path = f"status/{self.date_str}/{self.get_service_name()}"
             self.running_in_lambda = True
             self.file_utils = S3Utils(self.bucket_name)
-            # Only /tmp folder is writable in Lambda environment
+            
             self.local_data_path = f"/tmp/{self.get_service_name()}"
             self.local_utils = LocalUtils(self.local_data_path)
             self.log_file_path = os.path.join(self.bucket_name,self.status_path)
@@ -111,6 +111,10 @@ class BaseMenu(JSONMixin, APIMixin):
         return self.parse_location_for_menu(item_details_json, filename)
 
     def generate_files_list(self, file_name):
+        """
+        Generate list of ALL location files from S3
+        This lists all stores that need menu processing
+        """
         logging.info(f"[{self.get_service_name()}] Start: Generating filename:{file_name}")
         all_files = self.file_utils.list(self.input_file_path)
         logging.info(f"[{self.get_service_name()}] Start: Total files found:{len(all_files)}")
@@ -144,6 +148,10 @@ class BaseMenu(JSONMixin, APIMixin):
         self.append_to_log(f"{self.log_id},generate_files_list,file_count,{count},success")
 
     def gen_menu(self):
+        """
+        UPDATED: Process multiple stores per invocation (batch processing)
+        Similar to BaseLocation's approach with page_size
+        """
         if self.offset == 0 or not self.file_utils.file_exists(self.status_path, "all_branches.csv"):
             self.generate_files_list("all_branches.csv")
 
@@ -153,32 +161,33 @@ class BaseMenu(JSONMixin, APIMixin):
         row_parsed = 0
         all_parsed = False
         total_records = len(rows_list)
+        
         if self.offset_end == -1:
-            self.offset_end = total_records+10
+            self.offset_end = total_records + 10
 
+        logging.info(f"[{self.get_service_name()}] Processing menu - Total stores: {total_records}, Offset: {self.offset}, Page size: {self.page_size}")
+
+        
+        stores_processed = 0
         for i, row in enumerate(rows_list):
             if row_parsed >= self.offset:
+                
+                if self.get_remaining_time_sec() < 70:
+                    logging.info(
+                        f"[{self.get_service_name()}] Function timeout approaching: {row_parsed}/{total_records}")
+                    break
+                
                 j_filename = row["file_name"]
                 store_data = self.__read_location_json(j_filename)
                 store_data['scrape_date'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                # store_data_cbsa = self.attach_cbsa(store_data)
-                # cbsa= self.find_cbsa(store_data['latitude'], store_data['longitude'])
-                # if cbsa is not None:
-                #     store_data['CBSAFP']=cbsa['CBSAFP']
-                #     store_data['GEOID'] = cbsa['GEOID']
-                #     store_data['CSAFP'] = cbsa['CSAFP']
-                # else:
-                #     store_data['CBSAFP']= '0'
-                #     store_data['GEOID'] = '0'
-                #     store_data['CSAFP'] = '0'
 
                 if self.force_fetch or not self.file_utils.file_exists(self.output_file_path, j_filename):
-                    logging.info(f"[{self.get_service_name()}] Start: processing record:{i}, filename:{j_filename}")
+                    logging.info(f"[{self.get_service_name()}] Processing store {stores_processed + 1}/{self.page_size}: {j_filename}")
                     item_id, menu_details = self.gen_request(store_data)
 
                     if not self.goto_next_step:
                         logging.info(
-                            f"[{self.get_service_name()}][Menu] Function is suspended because of cookie expiration and zenRows API failure")
+                            f"[{self.get_service_name()}] Function suspended due to API failure")
                         break
 
                     if menu_details:
@@ -188,51 +197,48 @@ class BaseMenu(JSONMixin, APIMixin):
                             menu_data = {"store": store_data, "menu_detail": menu_details}
                         else:
                             menu_data = {"store": store_data, "menu_detail": menu_details.json()}
+                        
                         self.file_utils.write_file(self.output_file_path, j_filename, json.dumps(menu_data))
                         self.append_to_log(f"{self.log_id},url,{j_filename},{self.offset},success")
                         logging.info(
-                            f"[{self.get_service_name()}] Success: processing record:{i}, store:{item_id}, filename:{j_filename}")
+                            f"[{self.get_service_name()}] Success: store:{item_id}, filename:{j_filename}")
                     else:
                         self.file_utils.write_file(self.failed_items_path, j_filename, "None")
                         self.append_to_log(f"{self.log_id},url,{j_filename},{self.offset},failure")
                         logging.error(
-                            f"[{self.get_service_name()}] Error: processing record:{i}, store:{item_id}, filename:{j_filename}")
+                            f"[{self.get_service_name()}] Error: store:{item_id}, filename:{j_filename}")
 
-                    if row_parsed > self.offset + 1:  # sleep if multiple items
-                        logging.info(f"[{self.get_service_name()}] waiting for 2 sec, record:{i}")
-                        sleep(2)
+                    
+                    if stores_processed > 0:
+                        sleep(1)
+                    
+                    stores_processed += 1
                 else:
                     content = f"{self.log_id},file,{j_filename},found,success"
                     self.append_to_log(content)
+                    stores_processed += 1
 
             row_parsed += 1
 
-
-            if row_parsed >= self.offset + self.page_size:
-                logging.info(f"[{self.get_service_name()}] Menu parsed: {i}, Total record: {total_records}")
+       
+            if stores_processed >= self.page_size:
+                logging.info(f"[{self.get_service_name()}] Batch complete: {stores_processed} stores processed")
                 break
 
-            if self.get_remaining_time_sec() < 70:
-                logging.info(
-                    f"[{self.get_service_name()}][Menu] Function is suspended because of possible timeout: {row_parsed}/{total_records}")
-                # self.page_size = self.offset - row_parsed
-                break
-
+        
         if row_parsed >= self.offset_end:
-            logging.info(f"[{self.get_service_name()}] All menu items between ({self.offset}, {self.offset_end}) are parsed, Total record: {total_records}")
+            logging.info(f"[{self.get_service_name()}] All menu items between ({self.offset}, {self.offset_end}) are parsed")
             all_parsed = True
 
         if row_parsed >= total_records:
-            logging.info(f"[{self.get_service_name()}] All menu items are parsed, Total record: {total_records}")
+            logging.info(f"[{self.get_service_name()}] All menu items are parsed, Total: {total_records}")
             all_parsed = True
 
         self.flush_log()
 
         percentage = str(round(row_parsed/total_records*100,2))+"%"
 
-
         if not self.goto_next_step:
-            # Move to next_step
             return {
                 "parser": self.get_service_name(),
                 "action": 'None',
@@ -247,26 +253,7 @@ class BaseMenu(JSONMixin, APIMixin):
             }
 
         if all_parsed:
-            # next_action = ActionName.MAKE_CSV.value
-            # if (self.get_service_name() == ParserName.hardees.name
-            #         or self.get_service_name() == ParserName.cjr.name
-            #         or self.get_service_name() == ParserName.popeyes.name):
-            #     next_action = ActionName.PROCESS_POST_MENU.value
-            # return {
-            #     "parser": self.get_service_name(),
-            #     "action": next_action,
-            #     "use_proxy": self.use_proxy,
-            #     "page_size": self.page_size,
-            #     "offset": 0,
-            #     "has_more": True,
-            #     "offset_end": self.offset_end,
-            #     "force_fetch": self.force_fetch,
-            #     "goto_next_step": self.goto_next_step,
-            #     "completed": percentage,
-            #     "version": self.version,
-            #     "log_id": self.log_id
-            # }
-
+           
             next_action = ActionName.PROCESS_LOGS.value
             return {
                 "parser": self.get_service_name(),
@@ -285,6 +272,7 @@ class BaseMenu(JSONMixin, APIMixin):
                 "previous_action": ActionName.PROCESS_MENU.value
             }
         else:
+            
             return {
                 "parser": self.get_service_name(),
                 "action": ActionName.PROCESS_MENU.value,
@@ -308,12 +296,7 @@ class BaseMenu(JSONMixin, APIMixin):
         content = '\n'.join(self.append_log)
         self.file_utils.append_to_file(self.status_path, self.log_file, content)
 
-    # Function to find the CBSA ID based on latitude and longitude
     def find_cbsa(self, latitude, longitude):
-        # CBSAFP and CBSAID are generally the same, both representing the identifier for a CBSA.
-        # CSAFP represents a broader Combined Statistical Area that may contain multiple CBSAs.
-        # GEOID is a more general geographic code that can be used for many types of regions (not just CBSAs).
-
         cbsa_data = self.read_from_json_file(self.cbsa_path_json)
         try:
             for cbsa in cbsa_data:
@@ -323,7 +306,6 @@ class BaseMenu(JSONMixin, APIMixin):
         except Exception as e:
             logging.error(
                 f"[{self.get_service_name()}] Error: Unable to get CBSA")
-
         return None
 
     def get_remaining_time_sec(self):

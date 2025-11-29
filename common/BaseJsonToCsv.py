@@ -21,7 +21,7 @@ class BaseJsonToCsv(JSONMixin):
         super().__init__()
         self.running_in_lambda = False
         self.local_data_path = parser_path + "/data"
-        self.input_file_path = "menu"
+        self.input_file_path = "post-menu"  # FIXED: Default to post-menu instead of menu
         self.cost_file_path = "post-menu-cost"
         self.output_file_path = "result"
         self.cbsa_path = parser_path + "/../data"
@@ -42,19 +42,17 @@ class BaseJsonToCsv(JSONMixin):
         if "offset_end" in event:
             self.offset_end = event["offset_end"]
 
-        # Instantiate S3Utils or LocalUtils
         if "AWS_LAMBDA_FUNCTION_VERSION" in os.environ:
             print("in Lambda")
             self.bucket_name = "scrapers-resturantlambda"
             self.date_str = Utils(event).get_directory_name()
             self.version = self.date_str
-            self.input_file_path = f"menu/{self.date_str}/{self.get_service_name()}"
+            self.input_file_path = f"post-menu/{self.date_str}/{self.get_service_name()}"  # FIXED: Use post-menu
             self.cost_file_path = f"post-menu-cost/{self.date_str}/{self.get_service_name()}"
             self.output_file_path = f"result/{self.date_str}/{self.get_service_name()}"
             self.address_file_path  = "lat-long-cache"
             self.running_in_lambda = True
             self.file_utils = S3Utils(self.bucket_name)
-            # Only /tmp folder is writable in Lambda environment
             self.local_data_path = "/tmp"
             self.local_utils = LocalUtils(self.local_data_path)
         else:
@@ -65,7 +63,6 @@ class BaseJsonToCsv(JSONMixin):
             self.local_utils = LocalUtils(self.local_data_path)
             self.file_utils = self.local_utils
 
-        # self.read_cbsa_text()
         self.brand_map = {
             ParserName.rc.name: 1, ParserName.daves.name: 2, ParserName.zaxbys.name: 3,
             ParserName.chickfila.name: 4, ParserName.kfc.name: 5, ParserName.wendy.name: 6,
@@ -93,11 +90,14 @@ class BaseJsonToCsv(JSONMixin):
         }
 
     def parse_menu_csv(self):
-        all_files = self.file_utils.list(self.input_file_path+"/")
+        
+        all_files = self.file_utils.list(self.input_file_path + "/")
         total_records = len(all_files)
         self.offset_end = total_records + 1
         row_parsed = 0
         all_parsed = False
+        stores_processed = 0
+        
         temp_file_name = f"{self.get_service_name()}_prices_{self.offset}.csv"
         key = os.path.join(self.local_data_path, self.output_file_path, temp_file_name)
 
@@ -111,44 +111,61 @@ class BaseJsonToCsv(JSONMixin):
             pass
         os.makedirs(os.path.dirname(key), exist_ok=True)
 
+        logging.info(f"[{self.get_service_name()}] Starting CSV generation - Total files: {total_records}, Offset: {self.offset}")
+
         with open(key, 'a', newline='', encoding='utf-8') as csv_out_file:
             writer = csv.DictWriter(csv_out_file, fieldnames=fieldnames)
             writer.writeheader()
 
             for f_name in all_files:
                 if row_parsed >= self.offset:
+                    
+                    if self.get_remaining_time_sec() < 70:
+                        logging.info(
+                            f"[{self.get_service_name()}] Function timeout approaching: {row_parsed}/{total_records}")
+                        break
+                    
                     if self.running_in_lambda:
-                        self.file_utils.download_object(f_name,
-                                                        os.path.join(self.local_data_path, f_name))
+                        
+                        self.file_utils.download_object(
+                            f_name,
+                            os.path.join(self.local_data_path, f_name)
+                        )
+                        file_path = os.path.join(self.local_data_path, f_name)
+                    else:
+                        
+                        file_path = os.path.join(self.local_data_path, self.input_file_path, f_name)
+                    
                     try:
-                        # remove menu due to error
-                        # No such file or directory: '/tmp/menu/post-menu/2025039/hardees/132632.json'
-                        item_details_json = self.read_from_json_file(os.path.join(self.local_data_path,f_name))
+                        logging.info(f"[{self.get_service_name()}] Processing file {stores_processed + 1}/{self.page_size}: {f_name}")
+                        
+                        item_details_json = self.read_from_json_file(file_path)
                         item_id = f_name.split(".")[0]
+                        
                         if item_details_json is not None:
                             self.write_menu_to_csv(item_details_json, item_id, writer)
                         else:
-                            logging.error('Data was not inputted for %s', item_id)
+                            logging.error(f'[{self.get_service_name()}] Data was not inputted for {item_id}')
                     except Exception as e:
                         logging.error(
-                            'Data was not inputted for %s because of Error: %s', f_name, e)
+                            f'[{self.get_service_name()}] Data was not inputted for {f_name} because of Error: {e}')
+                        import traceback
+                        logging.error(traceback.format_exc())
+                    
+                    stores_processed += 1
+                
                 row_parsed += 1
 
-                if row_parsed >= self.offset + self.page_size:
-                    logging.info(f"[{self.get_service_name()}] Menu parsed: {row_parsed}/{total_records}")
-                    break
-
-                if self.get_remaining_time_sec() < 70:
-                    logging.info(
-                        f"[{self.get_service_name()}] Function is suspended because of possible timeout: {row_parsed}/{total_records}")
-                    # self.page_size = self.offset - row_parsed
+                
+                if stores_processed >= self.page_size:
+                    logging.info(f"[{self.get_service_name()}] Batch complete: {stores_processed} stores processed")
                     break
 
         if row_parsed >= total_records:
-            logging.info(f"[{self.get_service_name()}] All menu items are parsed, Total record: {total_records}")
+            logging.info(f"[{self.get_service_name()}] All menu items are parsed, Total: {total_records}")
             all_parsed = True
 
-        # Upload final CSV to S3
+       
         if self.running_in_lambda:
             print("Uploading to s3: " + str(os.path.join(self.output_file_path, temp_file_name)))
             self.file_utils.upload_object(key, os.path.join(self.output_file_path, temp_file_name))
@@ -187,7 +204,6 @@ class BaseJsonToCsv(JSONMixin):
             }
 
     def get_service_name(self):
-        """Override in subclass to provide service name (e.g., 'daves', 'chickfila')."""
         raise NotImplementedError("Subclasses should implement this method")
 
     def csv_headers(self):
@@ -204,7 +220,6 @@ class BaseJsonToCsv(JSONMixin):
         return 120
 
     def delete_all_contents(self, directory):
-        # Iterate through all contents of the directory
         for item in os.listdir(directory):
             item_path = os.path.join(directory, item)
             if os.path.isfile(item_path):
@@ -221,7 +236,6 @@ class BaseJsonToCsv(JSONMixin):
         for i, row in enumerate(rows_list):
             self.cbsa_map[row['geo_id']] = row['name']
 
-
     def clean_text_remove_special_characters(self, text):
         if isinstance(text,str):
             cleaned_name = re.sub(r"[™®]", "", text)
@@ -229,12 +243,11 @@ class BaseJsonToCsv(JSONMixin):
             return cleaned_name
 
     def clean_text(self, text):
-        if isinstance(text, str):  # Check if it's a string to avoid errors
-            text = text.strip()  # Remove leading/trailing whitespace
-            text = text.replace('\n', ' ').replace('\r', ' ')  # Remove newlines
-            text = text.replace(',', ' ')  # Replace commas with spaces (or other suitable character)
-            # Optionally, you can remove extra spaces or special characters:
-            text = re.sub(r'\s+', ' ', text)  # Replace multiple spaces with a single space
+        if isinstance(text, str):
+            text = text.strip()
+            text = text.replace('\n', ' ').replace('\r', ' ')
+            text = text.replace(',', ' ')
+            text = re.sub(r'\s+', ' ', text)
         return text
 
     def read_cost_files(self, api_response):
@@ -250,12 +263,10 @@ class BaseJsonToCsv(JSONMixin):
 
                 if item_details_json is not None:
                     cost_items[item_id] = self.find_cost(item_details_json["optiongroups"])
-
                 else:
                     logging.error('Unable to load cost data from file: %s', file_path)
             except Exception as e:
-                logging.error(
-                    'Unable to parse cost data for:%s, error:%s', item_id, e)
+                logging.error('Unable to parse cost data for:%s, error:%s', item_id, e)
 
         return cost_items
 
@@ -293,17 +304,12 @@ class BaseJsonToCsv(JSONMixin):
                     a[parent] += v['cost']
                 else:
                     a[parent] = v['cost']
-
             return a
 
         read_cost_data("none", content1, 1, 0)
         return parse_options()
 
-    # Fetches latitude and longitude from Amazon Location Service using the given address.
     def fetch_location_api(self, address):
-        """
-        Fetches latitude and longitude from Amazon Location Service using the given address.
-        """
         client = boto3.client('location')
         try:
             response = client.search_place_index_for_text(
@@ -312,19 +318,12 @@ class BaseJsonToCsv(JSONMixin):
             )
             if response['Results']:
                 coordinates = response['Results'][0]['Place']['Geometry']['Point']
-                # Amazon Location API returns coordinates as [longitude, latitude]
                 return coordinates[1], coordinates[0]
         except Exception as e:
             print(f"Error fetching lat/long for address '{address}': {e}")
         return None, None
 
     def get_lat_long(self, address):
-        """
-        Try address resolution through csv cache file
-        If the address file is unavailable or lacks specific entries,
-        call the service to fetch the required data,
-        update the file with the new entries, and save it back to S3.
-        """
         local_path = os.path.join(self.local_data_path, self.address_file_name)
         s3_cache_path = os.path.join(self.address_file_path, self.address_file_name)
         try:
@@ -333,7 +332,6 @@ class BaseJsonToCsv(JSONMixin):
                         or self.file_utils.file_exists(self.address_file_path, self.address_file_name)):
                     self.file_utils.download_object(s3_cache_path, local_path)
 
-            # Check the CSV file for existing latitude and longitude
             with open(local_path, mode='r') as csvfile:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
@@ -342,33 +340,22 @@ class BaseJsonToCsv(JSONMixin):
         except FileNotFoundError:
             print(f"CSV file '{local_path}' not found. It will be created.")
 
-        # If not found in the CSV, fetch from Amazon Location API
         print(f"Fetching lat/long for address: {address}")
         lat, long = self.fetch_location_api(address)
-        # todo: not thread safe implementation, move this logic from csv to dynamodb
         self.address_cache_updated = True
 
         if lat and long:
-            # Append the new address and its lat/long to the CSV file
             with open(local_path, mode='a', newline='') as csvfile:
                 fieldnames = ['address', 'lat', 'long']
                 writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
-                # Write header if file is empty
-                csvfile.seek(0, 2)  # Move to end of file to check size
+                csvfile.seek(0, 2)
                 if csvfile.tell() == 0:
                     writer.writeheader()
-
                 writer.writerow({'address': address, 'lat': lat, 'long': long})
 
         return lat, long
 
-    # Function to find the CBSA ID based on latitude and longitude
     def find_cbsa(self, latitude, longitude):
-        # CBSAFP and CBSAID are generally the same, both representing the identifier for a CBSA.
-        # CSAFP represents a broader Combined Statistical Area that may contain multiple CBSAs.
-        # GEOID is a more general geographic code that can be used for many types of regions (not just CBSAs).
-
         cbsa_data = self.read_from_json_file(self.cbsa_path_json)
         try:
             for cbsa in cbsa_data:
@@ -376,9 +363,7 @@ class BaseJsonToCsv(JSONMixin):
                         cbsa['min_lon'] <= float(longitude) <= cbsa['max_lon']):
                     return cbsa
         except Exception as e:
-            logging.error(
-                f"[{self.get_service_name()}] Error: Unable to get CBSA")
-
+            logging.error(f"[{self.get_service_name()}] Error: Unable to get CBSA")
         return None
 
     def gen_csv_row(self, menu_name, menu_description, price, menu_id, menu_parent_id, menu_parent_name, store,image_url=None):
@@ -397,7 +382,6 @@ class BaseJsonToCsv(JSONMixin):
             if cbsa is not None:
                 cbsa_id=cbsa['CBSAFP']
 
-        # cbsa_name = self.cbsa_map.get(cbsa_id, 'N/A')
         cbsa_name = 'N/A'
         return {
             'menu_name': self.clean_text(menu_name),

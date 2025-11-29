@@ -34,14 +34,13 @@ class BasePostMenu(JSONMixin, APIMixin):
         if "page_size" in event:
             self.page_size = event["page_size"]
 
-
         if "offset" in event:
             self.offset = event["offset"]
 
         if "offset_end" in event:
             self.offset_end = event["offset_end"]
 
-        # Instantiate S3Utils or LocalUtils
+        
         if "AWS_LAMBDA_FUNCTION_VERSION" in os.environ:
             print("in Lambda")
             self.bucket_name = "scrapers-resturantlambda"
@@ -53,7 +52,6 @@ class BasePostMenu(JSONMixin, APIMixin):
             self.status_path = f"status/{self.date_str}/{self.get_service_name()}"
             self.running_in_lambda = True
             self.file_utils = S3Utils(self.bucket_name)
-            # Only /tmp folder is writable in Lambda environment
             self.local_data_path = "/tmp"
             self.local_utils = LocalUtils(self.local_data_path)
         else:
@@ -63,50 +61,66 @@ class BasePostMenu(JSONMixin, APIMixin):
             self.file_utils = self.local_utils
 
     def associate_missing_price(self):
+        """
+        UPDATED: Process multiple stores per invocation (batch processing)
+        Check timeout BEFORE processing each store to avoid mid-store failures
+        """
         all_files = self.file_utils.list(self.input_file_path)
         total_records = len(all_files)
+        
         if self.offset_end == -1:
             self.offset_end = total_records + 1
+        
         row_parsed = 0
         all_parsed = False
         stop_process = False
+        stores_processed = 0
+
+        logging.info(f"[{self.get_service_name()}] Processing post-menu - Total stores: {total_records}, Offset: {self.offset}, Page size: {self.page_size}")
 
         for f_name in all_files:
             if row_parsed >= self.offset:
+                # Check timeout BEFORE processing each store
+                if self.get_remaining_time_sec() < 70:
+                    logging.info(
+                        f"[{self.get_service_name()}] Function timeout approaching: {row_parsed}/{total_records}")
+                    break
+
                 if self.running_in_lambda:
                     self.file_utils.download_object(os.path.join(self.input_file_path, f_name),
                                                     os.path.join(self.local_data_path, self.input_file_path, f_name))
 
                 item_id = f_name.split(".")[0]
                 try:
+                    logging.info(f"[{self.get_service_name()}] Processing store {stores_processed + 1}/{self.page_size}: {f_name}")
+                    
                     item_details_json = self.read_from_json_file(os.path.join(self.local_data_path,
                                                                               self.input_file_path, f_name))
                     if item_details_json is not None:
-                        self.read_menu( item_details_json, item_id, f_name)
+                        self.read_menu(item_details_json, item_id, f_name)
                     else:
                         logging.error('Data was not inputted for %s', item_id)
                 except Exception as e:
                     logging.error(
                         'Data was not inputted for %s because of Error: %s', item_id, e)
+                
+                stores_processed += 1
+            
             row_parsed += 1
 
-            if row_parsed >= self.offset + self.page_size:
-                logging.info(f"[{self.get_service_name()}] Menu parsed: {row_parsed}/{total_records}")
+            # Break if we've processed page_size stores
+            if stores_processed >= self.page_size:
+                logging.info(f"[{self.get_service_name()}] Batch complete: {stores_processed} stores processed")
                 break
 
-            if self.get_remaining_time_sec() < 70:
-                logging.info(
-                    f"[{self.get_service_name()}] Function is suspended because of possible timeout: {row_parsed}/{total_records}")
-                # self.page_size = self.offset - row_parsed
-                break
-
+       
         if row_parsed >= self.offset_end:
             logging.info(
-                f"[{self.get_service_name()}] All post-menu items between ({self.offset}, {self.offset_end}) are parsed, Total record: {total_records}")
+                f"[{self.get_service_name()}] All post-menu items between ({self.offset}, {self.offset_end}) are parsed")
             stop_process = True
 
         if row_parsed >= total_records:
-            logging.info(f"[{self.get_service_name()}] All menu items are parsed, Total record: {total_records}")
+            logging.info(f"[{self.get_service_name()}] All menu items are parsed, Total: {total_records}")
             all_parsed = True
 
         self.flush_log()
@@ -114,6 +128,7 @@ class BasePostMenu(JSONMixin, APIMixin):
         percentage = str(round(row_parsed / total_records * 100, 2)) + "%"
 
         if all_parsed:
+           
             return {
                 "parser": self.get_service_name(),
                 "action": ActionName.MAKE_CSV.value,
@@ -127,6 +142,7 @@ class BasePostMenu(JSONMixin, APIMixin):
             }
         else:
             if stop_process:
+                
                 return {
                     "parser": self.get_service_name(),
                     "action": "None",
@@ -139,6 +155,7 @@ class BasePostMenu(JSONMixin, APIMixin):
                     "version": self.version,
                 }
             else:
+                
                 return {
                     "parser": self.get_service_name(),
                     "action": ActionName.PROCESS_POST_MENU.value,
@@ -151,20 +168,16 @@ class BasePostMenu(JSONMixin, APIMixin):
                     "version": self.version,
                 }
 
-
-
     def read_menu(self, api_response, menu_id, source_name):
-        # file_locations = []
         store_detail = api_response['store']
         menu_details = api_response['menu_detail']
 
         menu_details, file_locations = self.parse_items(menu_details, menu_id)
 
         try:
-            # update the source menu file to record the cost file location
             menu_data = {"store": store_detail, "menu_detail": menu_details, "cost_file":file_locations}
             self.file_utils.write_file(self.output_file_path, source_name, json.dumps(menu_data))
-            logging.info(f"[{self.get_service_name()}] successfully write:{source_name} to post-menu file")
+            logging.info(f"[{self.get_service_name()}] Successfully wrote:{source_name} to post-menu")
         except Exception as e:
             logging.error(f'[{self.get_service_name()}] File %s: Error:%s', menu_id, e)
 
@@ -184,14 +197,10 @@ class BasePostMenu(JSONMixin, APIMixin):
         self.file_utils.append_to_file(self.status_path, self.log_file, content)
 
     def get_service_name(self):
-        """Override in subclass to provide service name (e.g., 'daves', 'chickfila')."""
         raise NotImplementedError("Subclasses should implement this method")
 
     def parse_items(self, menu_details, menu_id):
         raise NotImplementedError("Subclasses should implement this method")
-
-    # def read_menu(self, api_response, store_id, source_name):
-    #     raise NotImplementedError("Subclasses should implement this method")
 
     def gen_request(self, menu_id):
         raise NotImplementedError("Subclasses should implement this method")
