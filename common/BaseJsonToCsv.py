@@ -21,7 +21,7 @@ class BaseJsonToCsv(JSONMixin):
         super().__init__()
         self.running_in_lambda = False
         self.local_data_path = parser_path + "/data"
-        self.input_file_path = "post-menu"  # FIXED: Default to post-menu instead of menu
+        self.input_file_path = "menu"  # FIXED: Default to post-menu instead of menu
         self.cost_file_path = "post-menu-cost"
         self.output_file_path = "result"
         self.cbsa_path = parser_path + "/../data"
@@ -47,7 +47,7 @@ class BaseJsonToCsv(JSONMixin):
             self.bucket_name = "scrapers-resturantlambda"
             self.date_str = Utils(event).get_directory_name()
             self.version = self.date_str
-            self.input_file_path = f"post-menu/{self.date_str}/{self.get_service_name()}"  # FIXED: Use post-menu
+            self.input_file_path = f"menu/{self.date_str}/{self.get_service_name()}"  # FIXED: Use post-menu
             self.cost_file_path = f"post-menu-cost/{self.date_str}/{self.get_service_name()}"
             self.output_file_path = f"result/{self.date_str}/{self.get_service_name()}"
             self.address_file_path  = "lat-long-cache"
@@ -331,9 +331,13 @@ class BaseJsonToCsv(JSONMixin):
         s3_cache_path = os.path.join(self.address_file_path, self.address_file_name)
         try:
             if self.running_in_lambda:
-                if (self.file_utils.file_exists(self.local_data_path, self.address_file_name) == False
-                        or self.file_utils.file_exists(self.address_file_path, self.address_file_name)):
-                    self.file_utils.download_object(s3_cache_path, local_path)
+                # Check if file exists locally, if not try to download from S3
+                if not os.path.exists(local_path):
+                    try:
+                        if self.file_utils.file_exists(self.address_file_path, self.address_file_name):
+                            self.file_utils.download_object(s3_cache_path, local_path)
+                    except Exception as e:
+                        logging.debug(f"[{self.get_service_name()}] Could not check/download address cache from S3: {e}")
 
             with open(local_path, mode='r') as csvfile:
                 reader = csv.DictReader(csvfile)
@@ -359,18 +363,25 @@ class BaseJsonToCsv(JSONMixin):
         return lat, long
 
     def find_cbsa(self, latitude, longitude):
-        cbsa_data = self.read_from_json_file(self.cbsa_path_json)
         try:
+            if not os.path.exists(self.cbsa_path_json):
+                logging.warning(f"[{self.get_service_name()}] CBSA file not found at {self.cbsa_path_json}, skipping CBSA lookup")
+                return None
+            cbsa_data = self.read_from_json_file(self.cbsa_path_json)
             for cbsa in cbsa_data:
                 if (cbsa['min_lat'] <= float(latitude) <= cbsa['max_lat'] and
                         cbsa['min_lon'] <= float(longitude) <= cbsa['max_lon']):
                     return cbsa
+        except FileNotFoundError:
+            logging.warning(f"[{self.get_service_name()}] CBSA file not found at {self.cbsa_path_json}, skipping CBSA lookup")
         except Exception as e:
-            logging.error(f"[{self.get_service_name()}] Error: Unable to get CBSA")
+            logging.error(f"[{self.get_service_name()}] Error: Unable to get CBSA: {e}")
         return None
 
     def gen_csv_row(self, menu_name, menu_description, price, menu_id, menu_parent_id, menu_parent_name, store,image_url=None):
+        
         cbsa_id = store.get('CBSAFP', 0)
+        print("store: ", store)
         latitude = store.get('latitude', 0.0)
         longitude = store.get('longitude', 0.0)
         address = store.get('address', 'N/A')
@@ -378,7 +389,7 @@ class BaseJsonToCsv(JSONMixin):
         city = store.get('city', 'N/A')
         state = store.get('state', 'N/A')
 
-        if latitude == 0.0 and longitude == 0.0 and address != 'N/A':
+        if latitude == 0.0 and longitude == 0.0 and address != 'N/A' and self.get_service_name()!='metro':
             combined_address = ", ".join([address, city, state, zipcode])
             latitude, longitude = self.get_lat_long(combined_address.lower())
             cbsa= self.find_cbsa(latitude, longitude)

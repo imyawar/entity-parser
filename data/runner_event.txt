@@ -1,0 +1,53 @@
+{
+  "parser": "kfc",
+  "action": "process.location",
+  "use_proxy": false,
+  "page_size": 10,
+  "offset": 0,
+  "has_more": true
+}
+
+{
+  "parser": "zaxbys",
+  "action": "process.location",
+  "use_proxy": false,
+  "page_size": 10,
+  "offset": 0,
+  "has_more": true
+}
+
+{
+  "parser": "wendy",
+  "action": "process.location",
+  "use_proxy": false,
+  "page_size": 10,
+  "offset": 0,
+  "has_more": true
+}
+
+{
+  "parser": "rc",
+  "action": "process.location",
+  "use_proxy": false,
+  "page_size": 10,
+  "offset": 0,
+  "has_more": true
+}
+
+{
+  "parser": "daves",
+  "action": "process.location",
+  "use_proxy": false,
+  "page_size": 10,
+  "offset": 0,
+  "has_more": true
+}
+
+{
+  "parser": "chickfila",
+  "action": "process.location",
+  "use_proxy": false,
+  "page_size": 10,
+  "offset": 0,
+  "has_more": true
+}

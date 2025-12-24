@@ -297,15 +297,19 @@ class BaseMenu(JSONMixin, APIMixin):
         self.file_utils.append_to_file(self.status_path, self.log_file, content)
 
     def find_cbsa(self, latitude, longitude):
-        cbsa_data = self.read_from_json_file(self.cbsa_path_json)
         try:
+            if not os.path.exists(self.cbsa_path_json):
+                logging.warning(f"[{self.get_service_name()}] CBSA file not found at {self.cbsa_path_json}, skipping CBSA lookup")
+                return None
+            cbsa_data = self.read_from_json_file(self.cbsa_path_json)
             for cbsa in cbsa_data:
                 if (cbsa['min_lat'] <= latitude <= cbsa['max_lat'] and
                         cbsa['min_lon'] <= longitude <= cbsa['max_lon']):
                     return cbsa
+        except FileNotFoundError:
+            logging.warning(f"[{self.get_service_name()}] CBSA file not found at {self.cbsa_path_json}, skipping CBSA lookup")
         except Exception as e:
-            logging.error(
-                f"[{self.get_service_name()}] Error: Unable to get CBSA")
+            logging.error(f"[{self.get_service_name()}] Error: Unable to get CBSA: {e}")
         return None
 
     def get_remaining_time_sec(self):

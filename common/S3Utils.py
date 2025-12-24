@@ -28,7 +28,13 @@ class S3Utils:
             key = os.path.join(s3_path, file_name)
             self.s3_client.head_object(Bucket=self.bucket_name, Key=key)
             return True
-        except ClientError:
+        except ClientError as e:
+            # 404 (Not Found) is expected when file doesn't exist, return False silently
+            # Other errors are also treated as "file doesn't exist" for this method
+            error_code = e.response.get('Error', {}).get('Code', '')
+            if error_code != '404':
+                # Log non-404 errors (like 403 Forbidden) for debugging
+                logging.debug(f"S3 file_exists check failed for {key}: {error_code}")
             return False
 
     def read_file(self, s3_path, file_name):

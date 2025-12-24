@@ -2,6 +2,8 @@ import csv
 import logging
 import sys
 import os
+import re
+import html
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -23,6 +25,35 @@ class MetroJsonToCsv(BaseJsonToCsv):
     
     def get_service_name(self):
         return "metro"
+    
+    def clean_html_description(self, html_text):
+        """
+        Clean HTML tags and entities from product description.
+        Removes all HTML tags, decodes HTML entities, and normalizes whitespace.
+        
+        Args:
+            html_text: String containing HTML content
+            
+        Returns:
+            Cleaned plain text string
+        """
+        if not html_text or html_text == 'N/A' or not isinstance(html_text, str):
+            return html_text
+        
+        # Remove HTML tags using regex
+        # This regex matches <...> tags including attributes
+        text = re.sub(r'<[^>]+>', '', html_text)
+        
+        # Decode HTML entities (e.g., &quot; -> ", &nbsp; -> space, etc.)
+        text = html.unescape(text)
+        
+        # Replace multiple whitespace (spaces, newlines, tabs) with single space
+        text = re.sub(r'\s+', ' ', text)
+        
+        # Strip leading/trailing whitespace
+        text = text.strip()
+        
+        return text
     
     # def parse_menu_csv(self):
     #     all_files = self.file_utils.list(self.input_file_path+"/")
@@ -137,6 +168,9 @@ class MetroJsonToCsv(BaseJsonToCsv):
                     product_id = product.get('id', 'N/A')
                     product_name = product.get('product_name', 'N/A')
                     description = product.get('description', 'N/A')
+                    
+                    # Clean HTML tags from description
+                    description = self.clean_html_description(description)
                     
                     price = product.get('price', 0)
                     
