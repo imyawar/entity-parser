@@ -17,8 +17,9 @@ class S3Utils:
         pages = paginator.paginate(Bucket=self.bucket_name, Prefix=s3_path)
 
         for page in pages:
-            for obj in page['Contents']:
-                keys.append(obj['Key'].replace(s3_path+"/", ''))
+            if 'Contents' in page:
+                for obj in page['Contents']:
+                    keys.append(obj['Key'].replace(s3_path+"/", ''))
 
         return keys
 

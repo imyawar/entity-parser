@@ -11,6 +11,73 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from common.BasePostMenu import BasePostMenu
 
 
+# Categories to exclude from product fetching
+EXCLUDED_MENU_PARENT_NAMES = [
+    "Air Conditioning",
+    "Air Sprays",
+    "Anti Perspirants",
+    "Antibacterial",
+    "Batteries and Cables",
+    "Bedding",
+    "Bins and Buckets",
+    "Blenders and Mixers",
+    "Body Sprays and Body Mists",
+    "Carpets and Rugs",
+    "Conditioners",
+    "Creams",
+    "Crockery",
+    "Cushions",
+    "Cutlery",
+    "Detergents and Laundry Soaps",
+    "Diapers and Wipes",
+    "Dishwashing Bars",
+    "Dishwashing Liquids",
+    "Disinfectants",
+    "Disposables",
+    "Fabric Care",
+    "Facewashes",
+    "Fans and Air Coolers",
+    "Fragrant",
+    "Fryers and Kettles",
+    "Furniture",
+    "Geysers and Heaters",
+    "Glassware",
+    "Hair Colors",
+    "Hand and Body Washes",
+    "Hangers and Accessories",
+    "Headphones and Headsets",
+    "Insecticides",
+    "Irons and Steamers",
+    "Kitchen Utensils and Accessories",
+    "LED TVs",
+    "Lotions and Sunscreen",
+    "Men Grooming",
+    "Mops and Brooms",
+    "O.T.C Medicines",
+    "Oils and Serums",
+    "Pots and Pans",
+    "Refrigerator and Freezer",
+    "Sandwich Makers",
+    "Shampoos",
+    "Shoe Polish",
+    "Smart Watches",
+    "Speakers and Audio",
+    "Sponges",
+    "Storage Containers",
+    "Tissues and Napkins",
+    "Toilet Supplies",
+    "Tooth Brushes",
+    "Tooth Pastes",
+    "Towels",
+    "UPS and Generator",
+    "Vacuum Cleaners",
+    "Washing Machines",
+    "Water Coolers and Dispensers",
+    "Women Care"
+]
+
+
+
 class MetroPostMenu(BasePostMenu):
     
     def __init__(self, event, context):
@@ -99,9 +166,16 @@ class MetroPostMenu(BasePostMenu):
             all_products = []
             
             # For each tier3 category, fetch products with pagination
+            excluded_count = 0
             for idx, category in enumerate(tier3_categories, 1):
                 category_id = category.get('id')
                 category_name = category.get('category_name', 'Unknown')
+                
+                # Skip excluded categories
+                if category_name in EXCLUDED_MENU_PARENT_NAMES:
+                    logging.info(f"[{self.get_service_name()}] [{idx}/{len(tier3_categories)}] Skipping excluded category: {category_name} (id: {category_id})")
+                    excluded_count += 1
+                    continue
                 
                 logging.info(f"[{self.get_service_name()}] [{idx}/{len(tier3_categories)}] Fetching products for category: {category_name} (id: {category_id})")
                 
@@ -138,6 +212,9 @@ class MetroPostMenu(BasePostMenu):
                 # Delay between categories to be respectful to the server
                 if idx < len(tier3_categories):
                     sleep(1)
+            
+            if excluded_count > 0:
+                logging.info(f"[{self.get_service_name()}] Excluded {excluded_count} categories from product fetching")
             
             logging.info(f"[{self.get_service_name()}] Total products fetched for store {store_id}: {len(all_products)}")
             

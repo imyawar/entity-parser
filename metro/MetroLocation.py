@@ -118,7 +118,8 @@ class MetroLocation(BaseLocation):
                             state = 'Balochistan'
                         elif city_lower in ['islamabad', 'rawalpindi', 'islamabad-rawalpindi']:
                             state = 'Islamabad Capital Territory'
-                    
+                    if state!='Sindh':
+                        continue
                    
                     location_data = {
                         'store_id': metro_store_id,  

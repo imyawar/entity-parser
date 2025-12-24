@@ -10,6 +10,18 @@ from common.BasePostMenu import BasePostMenu
 from common.ParserName import ParserName
 
 
+# Categories to exclude from product fetching
+EXCLUDED_CATEGORIES = [
+    "Tissues & Napkins",
+    "Toilet Essentials",
+    "Toilet Roll",
+    "Toothbrushes & Floss",
+    "Toothpastes",
+    "Wipes and Swabs",
+    "Wipes Swabs & Buds"
+]
+
+
 class ImtiazPostMenu(BasePostMenu):
     def __init__(self, event, context):
         super().__init__(event, str(os.path.dirname(__file__)), context)
@@ -78,11 +90,19 @@ class ImtiazPostMenu(BasePostMenu):
         
         all_products = []
         cost_files = []
+        excluded_count = 0
         
         # Fetch products for each section
         for idx, section_info in enumerate(sections):
             sub_section_id = section_info.get('sub_section_id')
             sub_section_name = section_info.get('sub_section_name', 'Unknown')
+            
+            # Skip excluded categories
+            if sub_section_name in EXCLUDED_CATEGORIES:
+                logging.info(f"[{self.get_service_name()}] [{idx+1}/{len(sections)}] Skipping excluded category: {sub_section_name} (id: {sub_section_id})")
+                excluded_count += 1
+                self.append_to_log(f"{menu_id},subsection:{sub_section_id},name:{sub_section_name},excluded,skipped")
+                continue
             
             logging.info(f"[{self.get_service_name()}] [{idx+1}/{len(sections)}] Fetching products for: {sub_section_name}")
             
@@ -108,8 +128,11 @@ class ImtiazPostMenu(BasePostMenu):
             # Rate limiting
             sleep(1)
         
+        if excluded_count > 0:
+            logging.info(f"[{self.get_service_name()}] Excluded {excluded_count} categories from product fetching")
+        
         logging.info(f"[{self.get_service_name()}] Total products fetched: {len(all_products)}")
-        self.append_to_log(f"{menu_id},complete,total_products:{len(all_products)},success")
+        self.append_to_log(f"{menu_id},complete,total_products:{len(all_products)},excluded:{excluded_count},success")
         
         # Create updated menu_details with products
         updated_menu_details = {

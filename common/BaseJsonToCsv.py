@@ -176,7 +176,10 @@ class BaseJsonToCsv(JSONMixin):
                 logging.info(f"[{self.get_service_name()}] Uploading to S3: source:{local_path}, destination:{s3_cache_path}")
                 self.file_utils.upload_object(local_path, s3_cache_path)
 
-        percentage = str(round(row_parsed / total_records * 100, 2)) + "%"
+        if total_records > 0:
+            percentage = str(round(row_parsed / total_records * 100, 2)) + "%"
+        else:
+            percentage = "0%"
 
         if all_parsed:
             return {
