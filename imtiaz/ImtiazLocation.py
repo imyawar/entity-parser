@@ -30,7 +30,7 @@ class ImtiazLocation(BaseLocation):
         url = "https://shop.imtiaz.com.pk/api/geofence"
         query_params = {'restId': '55126'}
         
-        return self.get_request(url, self.__get_headers(), query_params, False)
+        return self.get_request(url, self.__get_headers(), query_params)
 
     def gen_location_preprocessor(self):
         """

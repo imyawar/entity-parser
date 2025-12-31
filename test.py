@@ -3,8 +3,8 @@ from common.ActionName import ActionName
 from lambda_function import lambda_handler
 
 e = {
-    "parser": ParserName.metro.name,
-    "action": ActionName.MAKE_CSV.value,
+    "parser": ParserName.imtiaz.name,
+    "action": ActionName.PROCESS_LOCATION.value,
     "use_proxy": False,
     "page_size": 500,
     "offset": 0,

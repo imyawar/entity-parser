@@ -92,11 +92,22 @@ class ProcessLogs:
             filtered_logs = []
             for log in logs:
                 if log:
-                    # print(log)
-                    id = log.split(",")[2].strip()
+                    log = log.strip()
+                    if not log:  # Skip empty lines
+                        continue
+                    
+                    log_parts = log.split(",")
+                    # Check if log has enough fields (at least 3 for index [2])
+                    if len(log_parts) < 3:
+                        print(f"Warning: Skipping malformed log line (insufficient fields): {log}")
+                        continue
+                    
+                    # Get log_id from index [2] (third field)
+                    id = log_parts[2].strip()
                     if id == self.log_id:
                         total_records += 1
-                        if log.split(",")[3] == "generate_files_list":
+                        # Check if log has 4th field before accessing it
+                        if len(log_parts) >= 4 and log_parts[3].strip() == "generate_files_list":
                             total_records -= 1
                         else:
                             filtered_logs.append(log)
